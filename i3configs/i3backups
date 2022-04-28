@@ -1,0 +1,43 @@
+# i3
+# Temporary Backup
+exec_always cp .config/i3/* Documents/Configs/Config-Backups/TemporaryBackup/i3configs/
+# Backup
+exec cp .config/i3/* Documents/Configs/Config-Backups/Backup/i3configs/
+
+# Polybar
+# Temporary Backup
+exec_always cp .config/polybar/* Documents/Configs/Config-Backups/TemporaryBackup/polybar/
+# Backup
+exec cp .config/polybar/* Documents/Configs/Config-Backups/Backup/polybar/
+
+# Neofetch
+# Temporary Backup
+exec_always cp .config/neofetch/* Documents/Configs/Config-Backups/TemporaryBackup/neofetch/
+# Backup
+exec cp .config/neofetch/* Documents/Configs/Config-Backups/Backup/neofetch/
+
+# Picom
+# Temporary Backup
+exec_always cp .config/picom/* Documents/Configs/Config-Backups/TemporaryBackup/picom/
+# Backup
+exec cp .config/picom/* Documents/Configs/Config-Backups/Backup/picom/
+
+# Rofi
+# Temporary Backup
+exec_always cp .config/rofi/* Documents/Configs/Config-Backups/TemporaryBackup/rofi/
+# Backup
+exec cp .config/rofi/* Documents/Configs/Config-Backups/Backup/rofi/
+
+# sxhkd
+# Temporary Backup
+exec_always cp .config/sxhkd/* Documents/Configs/Config-Backups/TemporaryBackup/sxhkd/
+# Backup
+exec cp .config/sxhkd/* Documents/Configs/Config-Backups/Backup/sxhkd/
+
+# Firefox userChrome.css
+# Temporary Backup
+exec_always cp .mozilla/firefox/frqdxus0.Custom+Account\ \(ffprofile\)/chrome/* Documents/Configs/Config-Backups/TemporaryBackup/firefoxuserchrome.css/
+# Backup
+exec cp .mozilla/firefox/frqdxus0.Custom+Account\ \(ffprofile\)/chrome/* Documents/Configs/Config-Backups/Backup/firefoxuserchrome.css/
+
+# Temporary Backups occur on every i3wm restart, while Backups occur only on every login to i3wm.

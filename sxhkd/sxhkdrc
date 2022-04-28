@@ -1,0 +1,126 @@
+# Restart SXHKDRC File
+super + shift + Escape
+	pkill -USR1 -x sxhkd
+
+#####################################################################
+########################## Custom Keybinds ##########################
+#####################################################################
+
+#############
+# ROFI MENU #
+#############
+
+# Open Rofi
+super + d
+	rofi -show drun
+
+# Rofi-Power-Menu
+super + shift + e
+	rofi -show power-menu -modi power-menu:rofi-power-menu
+
+###############
+# LAUNCH APPS #
+###############
+
+# Open Terminator (Terminal)
+super + Tab
+	terminator
+
+# Open PCManFM (File Manager)
+super + t
+	pcmanfm
+
+# Open Flameshot (Screenshot GUI)
+super + shift + s
+	flameshot gui
+
+# Open Firefox (Web Browser)
+super + b
+	firefox
+
+# Open Steam (Gaming)
+super + g
+	steam
+
+# Open Virtualbox (Virtual Machines)
+super + m
+	virtualbox
+
+# Open Spotify (Music)
+super + s
+	LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify	
+# Open LibreOffice (Office Suite)
+super + n
+	libreoffice
+
+# Open Discord (Chat App)
+super + c
+	discord
+
+# Open OBS (Recording/Streaming Software)
+super + o
+	obs
+
+#####################################################################
+############################ i3 Keybinds ############################
+#####################################################################
+
+# Close (Kill) Applications
+super + shift + q
+	i3-msg kill
+
+# Change Focus
+super + {Left,Down,Up,Right}
+	i3-msg focus {left,down,up,right}
+
+# Move Focused Window
+super + shift + {Left,Down,Up,Right}
+	i3-msg move {left,down,up,right}
+
+# Split In Horizontal/Vertical Orientation
+super + {h,v}
+	i3-msg split {h,v}
+
+# Enter Fullscreen Mode For the Focused Container
+super + f
+	i3-msg fullscreen toggle
+
+# Change Container Layout (Stacked, Tabbed, Toggle Split)
+# Only Enabling "Toggle Split." If wanting to use other layouts replace with:
+# super + {s,w,e}
+#	i3-msg layout {stacking,tabbed,toggle split}
+super + e
+	i3-msg layout toggle split
+
+# Toggle Tiling/Floating
+super + shift + space
+	i3-msg floating toggle
+
+# Change Focus Between Tiling/Floating Windows
+super + space
+	i3-msg focus mode_toggle
+
+# Switch To Workspace
+super + {1-9,0}
+	i3-msg workspace {1,2,3,4,5,6,7,8,9,10}
+
+# Move Focused Container To Workspace
+super + shift + {1-9,0}
+	i3-msg move container to workspace {1,2,3,4,5,6,7,8,9,10}
+
+# Reload The Configuration File
+super + shift + c
+	i3-msg reload
+
+# Restart i3 Inplace
+super + shift + r
+	i3-msg restart
+
+# Move Focused Workspace To Other Monitor
+super + shift + {d,f}
+	i3-msg move workspace to output {HDMI-1,DP-3}
+
+# i3lock
+super + shift + l
+	$HOME/Documents/Configs/i3lockconf.sh
+

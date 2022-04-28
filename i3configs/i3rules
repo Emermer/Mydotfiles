@@ -1,0 +1,38 @@
+# Workspace Names
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# Output Names
+set $op1 output HDMI-1
+set $op2 output DP-3
+
+# Applications Always On Certain Workspace
+for_window [class="discord"] move to workspace $ws2
+for_window [class="Spotify"] move to workspace $ws8
+for_window [class="obs"] move to workspace $ws9
+for_window [class="VirtualBox Machine"] move to workspace $ws10
+
+# Workspace Always On Certain Monitor
+workspace $ws1 output $op1
+workspace $ws2 output $op2
+workspace $ws9 output $op2
+
+# Picture-in-Picture Mode Always On Second Monitor
+# Brave
+for_window [title="Picture in picture"] move to output $op2
+# Firefox
+for_window [title="Picture-in-Picture"] move to output $op2
+
+# Always Float
+# Galculator
+for_window [class="Galculator"] floating enable
+# Pavu Control
+for_window [class="Pavucontrol"] floating enable
