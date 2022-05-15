@@ -9,7 +9,7 @@ exec --no-startup-id nm-applet
 # Flameshot (Screenshot GUI)
 exec flameshot
 # redshift (Automatic Blue-light Decreaser)
-exec redshift-gtk -l 28.117665914076053:-82.69059064722393 -t 6500:4000
+exec redshift-gtk
 
 # Xrandr Display Config
 exec_always xrandr --output HDMI-1 --primary --mode 1920x1080 --rate 144 --pos 0x0 --rotate normal --output DP-3 --mode 1680x1050 --pos 1920x30 --rotate normal
