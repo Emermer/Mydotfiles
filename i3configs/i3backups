@@ -36,8 +36,8 @@ exec cp .config/sxhkd/* Documents/Configs/Config-Backups/Backup/sxhkd/
 
 # Firefox userChrome.css
 # Temporary Backup
-exec_always cp .mozilla/firefox/frqdxus0.Custom+Account\ \(ffprofile\)/chrome/* Documents/Configs/Config-Backups/TemporaryBackup/firefoxuserchrome.css/
+exec_always cp .librewolf/ggfff9ks.default-release/chrome* Documents/Configs/Config-Backups/TemporaryBackup/userchrome.css/
 # Backup
-exec cp .mozilla/firefox/frqdxus0.Custom+Account\ \(ffprofile\)/chrome/* Documents/Configs/Config-Backups/Backup/firefoxuserchrome.css/
+exec cp .librewolf/ggfff9ks.default-release/chrome* Documents/Configs/Config-Backups/Backup/userchrome.css/
 
 # Temporary Backups occur on every i3wm restart, while Backups occur only on every login to i3wm.

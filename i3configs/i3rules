@@ -15,19 +15,16 @@ set $op1 output HDMI-1
 set $op2 output DP-3
 
 # Applications Always On Certain Workspace
-for_window [class="discord"] move to workspace $ws6
-for_window [class="Steam"] move to workspace $ws7
-for_window [class="heroic"] move to workspace $ws7
-for_window [class="Lutris"] move to workspace $ws7
-for_window [class="Spotify"] move to workspace $ws8
+for_window [class="discord"] move to workspace $ws7
+for_window [class="Steam|heroic|Lutris|GeForce NOW|lunarclient"] move to workspace $ws8
 for_window [class="obs"] move to workspace $ws9
 for_window [class="VirtualBox Machine"] move to workspace $ws10
 
 # Workspace Always On Certain Monitor
 workspace $ws1 output $op1
-workspace $ws2 output $op2
-workspace $ws6 output $op2
+workspace $ws7 output $op2
 workspace $ws9 output $op2
+workspace $ws10 output $op1
 
 # Picture-in-Picture Mode Always On Second Monitor
 # Brave

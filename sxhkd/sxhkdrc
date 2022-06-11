@@ -18,45 +18,45 @@ super + d
 super + shift + e
 	rofi -show power-menu -modi power-menu:rofi-power-menu
 
+# Rofi-Beats
+super + shift + b
+	$HOME/.config/Rofi-Beats/rofi-beats
+
 ###############
 # LAUNCH APPS #
 ###############
 
-# Open Terminator (Terminal)
+# Terminator (Terminal Emulator)
 super + Tab
 	terminator
 
-# Open PCManFM (File Manager)
+# PCManFM (File Manager)
 super + t
 	pcmanfm
 
-# Open Flameshot (Screenshot GUI)
+# Flameshot (Screenshotting)
 super + shift + s
 	flameshot gui
 
-# Open Firefox (Web Browser)
+# LibreWolf (Web Browser)
 super + b
-	firefox
+	librewolf
 
-# Open Steam (Gaming)
+# Steam (Gaming)
 super + g
 	steam
 
-# Open Virtualbox (Virtual Machines)
-super + m
-	virtualbox
-
-# Open Spotify (Music)
-super + s
-	LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify
-
-# Open Discord (Chat App)
+# Discord (Chatting)
 super + c
-	discord
+	/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=discord com.discordapp.Discord
 
-# Open OBS (Recording/Streaming Software)
+# OBS (Recording/Streaming)
 super + o
 	obs
+
+# VirtualBox (Virtual Machine Manager)
+super + m
+	virtualbox 
 
 #####################################################################
 ############################ i3 Keybinds ############################
@@ -121,3 +121,24 @@ super + shift + {d,f}
 super + shift + l
 	$HOME/.config/i3/i3lockconf.sh
 
+# Scratchpads
+# Bitwarden (Password Manager)
+alt + w
+	bitwarden-desktop
+alt + 2
+	i3-msg [class="Bitwarden"] scratchpad show, move position center
+# Spotify (Music Player)
+alt + e
+	env LD_PRELOAD=/usr/lib/spotify-adblock.so spotify %U
+alt + 3
+	i3-msg [class="Spotify"] scratchpad show, move position center
+# Ranger (CLI File Manager)
+alt + r
+	terminator -T rangersp -e ranger
+alt + 4
+	i3-msg [title="rangersp"] scratchpad show, move position center
+# Terminator (Terminal Emulator)
+alt + q
+	terminator -T termsp
+alt + 1
+	i3-msg [title="termsp"] scratchpad show, move position center
