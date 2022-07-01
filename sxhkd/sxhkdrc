@@ -30,17 +30,17 @@ super + shift + b
 super + Tab
 	terminator
 
-# PCManFM (File Manager)
-super + t
-	pcmanfm
-
-# Flameshot (Screenshotting)
+# Flameshot (Screenshot GUI)
 super + shift + s
 	flameshot gui
 
-# LibreWolf (Web Browser)
+# Firefox (Web Browser)
 super + b
-	librewolf
+	firefox
+
+# PCManFM (File Manager)
+super + t
+	terminator -e ranger
 
 # Steam (Gaming)
 super + g
@@ -52,11 +52,15 @@ super + c
 
 # OBS (Recording/Streaming)
 super + o
-	obs
+	/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=obs com.obsproject.Studio
 
 # VirtualBox (Virtual Machine Manager)
+super + n
+	virtualbox
+
+# Mailspring (Email Client)
 super + m
-	virtualbox 
+	mailspring 
 
 #####################################################################
 ############################ i3 Keybinds ############################
@@ -67,15 +71,15 @@ super + shift + q
 	i3-msg kill
 
 # Change Focus
-super + {Left,Down,Up,Right}
+super + {h,j,k,l}
 	i3-msg focus {left,down,up,right}
 
 # Move Focused Window
-super + shift + {Left,Down,Up,Right}
+super + shift + {h,j,k,l}
 	i3-msg move {left,down,up,right}
 
 # Split In Horizontal/Vertical Orientation
-super + {h,v}
+super + shift + {c,v}
 	i3-msg split {h,v}
 
 # Enter Fullscreen Mode For the Focused Container
@@ -83,11 +87,8 @@ super + f
 	i3-msg fullscreen toggle
 
 # Change Container Layout (Stacked, Tabbed, Toggle Split)
-# Only Enabling "Toggle Split." If wanting to use other layouts replace with:
-# super + {s,w,e}
-#	i3-msg layout {stacking,tabbed,toggle split}
-super + e
-	i3-msg layout toggle split
+super + {f1,f2,f3}
+	i3-msg layout {stacking,tabbed,toggle split}
 
 # Toggle Tiling/Floating
 super + shift + space
@@ -106,7 +107,7 @@ super + shift + {1-9,0}
 	i3-msg move container to workspace {1,2,3,4,5,6,7,8,9,10}
 
 # Reload The Configuration File
-super + shift + c
+super + r
 	i3-msg reload
 
 # Restart i3 Inplace
@@ -118,27 +119,22 @@ super + shift + {d,f}
 	i3-msg move workspace to output {HDMI-1,DP-3}
 
 # i3lock
-super + shift + l
+super + Escape
 	$HOME/.config/i3/i3lockconf.sh
 
 # Scratchpads
 # Bitwarden (Password Manager)
-alt + w
+alt + shift + 2
 	bitwarden-desktop
 alt + 2
 	i3-msg [class="Bitwarden"] scratchpad show, move position center
 # Spotify (Music Player)
-alt + e
+alt + shift + 3
 	env LD_PRELOAD=/usr/lib/spotify-adblock.so spotify %U
 alt + 3
 	i3-msg [class="Spotify"] scratchpad show, move position center
-# Ranger (CLI File Manager)
-alt + r
-	terminator -T rangersp -e ranger
-alt + 4
-	i3-msg [title="rangersp"] scratchpad show, move position center
 # Terminator (Terminal Emulator)
-alt + q
+alt + shift + 1
 	terminator -T termsp
 alt + 1
 	i3-msg [title="termsp"] scratchpad show, move position center

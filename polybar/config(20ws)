@@ -51,13 +51,13 @@ font-1 = "Font Awesome 5 Brands:pixelsize=12;3"
 font-2 = "Font Awesome 5 Free Solid:pixelsize=12;3"
 font-3 = "Font Awesome 5 Free:pixelsize=12;3"
 
-modules-left = i3 xwindow
-modules-center =
+modules-left = i3
+modules-center = xwindow
 modules-right = pulseaudio memory cpu date
 
 ;tray-detached = true
-tray-position = center
-;tray-offset-x = 0
+;tray-position = left
+;tray-offset-x = 965
 ;tray-padding = 0
 ;tray-background = ${colors.background}
 
@@ -117,9 +117,14 @@ modules-center =
 modules-right = xwindow pulseaudio datebar2
 
 ;tray-detached = true
-;tray-position = center
+tray-position = center
 ;tray-offset-x = 0
 ;tray-padding = 0
+;tray-background = ${colors.background}
+
+;tray-detached = true
+;tray-position = left
+;tray-padding = 3
 ;tray-background = ${colors.background}
 
 ;wm-restack = bspwm
@@ -166,16 +171,26 @@ label-urgent-padding = 2
 ; Separator in between workspaces
 ; label-separator = |
 
-ws-icon-0 = 1;1
-ws-icon-1 = 2;2
-ws-icon-2 = 3;3 
-ws-icon-3 = 4;4 
-ws-icon-4 = 5;5 
-ws-icon-5 = 6;6
-ws-icon-6 = 7;7
-ws-icon-7 = 8;8
-ws-icon-8 = 9;9 
-ws-icon-9 = 10;10 
+ws-icon-0 = 1;1 
+ws-icon-1 = 2;2 
+ws-icon-2 = 3;3 
+ws-icon-3 = 4;4 
+ws-icon-4 = 5;5 
+ws-icon-5 = 6;6 
+ws-icon-6 = 7;7 
+ws-icon-7 = 8;8 
+ws-icon-8 = 9;9 
+ws-icon-9 = 10;10 
+ws-icon-10 = 11;11 
+ws-icon-11 = 12;12 
+ws-icon-12 = 13;13 
+ws-icon-13 = 14;14 
+ws-icon-14 = 15;15 
+ws-icon-15 = 16;16 
+ws-icon-16 = 17;17 
+ws-icon-17 = 18;18 
+ws-icon-18 = 19;19 
+ws-icon-19 = 20;20 
 ws-icon-default = 0
 
 [module/xwindow]

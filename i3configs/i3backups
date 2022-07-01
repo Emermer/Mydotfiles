@@ -1,4 +1,4 @@
-# i3
+# i3configs
 # Temporary Backup
 exec_always cp .config/i3/* Documents/Configs/Config-Backups/TemporaryBackup/i3configs/
 # Backup
@@ -36,8 +36,26 @@ exec cp .config/sxhkd/* Documents/Configs/Config-Backups/Backup/sxhkd/
 
 # Firefox userChrome.css
 # Temporary Backup
-exec_always cp .librewolf/ggfff9ks.default-release/chrome* Documents/Configs/Config-Backups/TemporaryBackup/userchrome.css/
+exec_always cp .mozilla/firefox/inxm00oz.default-release/chrome/* Documents/Configs/Config-Backups/TemporaryBackup/firefox/userchrome.css/
 # Backup
-exec cp .librewolf/ggfff9ks.default-release/chrome* Documents/Configs/Config-Backups/Backup/userchrome.css/
+exec cp .mozilla/firefox/inxm00oz.default-release/chrome/* Documents/Configs/Config-Backups/Backup/firefox/userchrome.css/
+
+# Firefox Homepage html
+# Temporary Backup
+exec_always cp Documents/Configs/Firefox/homepagehtml/* Documents/Configs/Config-Backups/TemporaryBackup/firefox/homepagehtml/
+# Backup
+exec cp Documents/Configs/Firefox/homepagehtml/* Documents/Configs/Config-Backups/TemporaryBackup/firefox/homepagehtml/
+
+# Firefox Autoconfig
+# .cfg
+# Temporary Backup
+exec_always cp /usr/lib/firefox/autoconfig.cfg Documents/Configs/Config-Backups/TemporaryBackup/firefox/autoconfig/
+# Backup
+exec cp /usr/lib/firefox/autoconfig.cfg Documents/Configs/Config-Backups/TemporaryBackup/firefox/autoconfig/
+# .js
+# Temporary Backup
+exec_always cp /usr/lib/firefox/defaults/pref/autoconfig.js Documents/Configs/Config-Backups/TemporaryBackup/firefox/autoconfig/
+# Backup
+exec cp /usr/lib/firefox/defaults/pref/autoconfig.js Documents/Configs/Config-Backups/TemporaryBackup/firefox/autoconfig/
 
 # Temporary Backups occur on every i3wm restart, while Backups occur only on every login to i3wm.

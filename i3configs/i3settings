@@ -11,7 +11,7 @@ client.background       #ffffff
 # i3 Gaps
 #smart_gaps on
 #smart_borders on
-gaps inner 6
-gaps outer 4
+gaps inner 10
+gaps outer 2
 # Window Border Settings
 for_window [class=".*"] border pixel 1

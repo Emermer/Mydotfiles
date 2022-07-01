@@ -2,6 +2,6 @@
 
 killall picom
 
-sleep 0.5
+sleep 2
 
 picom
