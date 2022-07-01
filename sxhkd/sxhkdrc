@@ -40,7 +40,7 @@ super + b
 
 # PCManFM (File Manager)
 super + t
-	terminator -e ranger
+	pcmanfm
 
 # Steam (Gaming)
 super + g
