@@ -1,6 +1,7 @@
 [colors]
 ;background = ${xrdb:color0:#222}
 background = #212121
+module-bg = #2C2C2C
 background-alt = #4c4c4c
 background-alt2-darker = #2c2c2c
 background-alt2 = #3c3c3c
@@ -16,13 +17,13 @@ icons = #0080D3
 [bar/bar1]
 monitor = ${env:MONITOR:HDMI-1}
 width = 100%
-height = 26
+height = 30
 ;offset-x = 5%
 ;offset-y = 5%
-radius = 8.0
+;radius = 8.0
 fixed-center = true
 ;bottom = true
-separator = |
+;separator = |
 ;enable-ipc = true
 
 background = ${colors.background}
@@ -31,22 +32,19 @@ foreground = ${colors.foreground}
 line-size = 2
 line-color = #f00
 
-border-size = 6
-;border-bottom-size = 1
-;border-bottom-color = ${colors.background-alt2-darker}
-border-color = #00000000
+;border-size = 6
+border-bottom-size = 1
+border-bottom-color = ${colors.background-alt2-darker}
+;border-color = #00000000
 
-;padding-left = 2
-;padding-right = 2
+;padding-left = 1
+padding-right = 1
 
 module-margin-left = 1
 module-margin-right = 1
 
-;font-0 = fixed:pixelsize=10;1
-font-0 = "Hack Nerd Font Regular:pixelsize=11;3"
-;font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-;font-2 = siji:pixelsize=10;1
-;font-3 = "Font Awesome:pixelsize=12;3"
+font-0 = "JetBrainsMono NF Regular:pixelsize=11;3"
+;font-0 = "Hack Nerd Font Regular:pixelsize=11;3"
 font-1 = "Font Awesome 5 Brands:pixelsize=12;3"
 font-2 = "Font Awesome 5 Free Solid:pixelsize=12;3"
 font-3 = "Font Awesome 5 Free:pixelsize=12;3"
@@ -56,10 +54,10 @@ modules-center =
 modules-right = pulseaudio memory cpu date
 
 ;tray-detached = true
-tray-position = center
+tray-position = right
 ;tray-offset-x = 0
 ;tray-padding = 0
-;tray-background = ${colors.background}
+tray-background = ${colors.module-bg}
 
 ;wm-restack = bspwm 
 ;wm-restack = i3
@@ -78,13 +76,13 @@ cursor-scroll = ns-resize
 [bar/bar2]
 monitor = ${env:MONITOR:DP-3}
 width = 100%
-height = 23
+height = 26
 ;offset-x = 5%
 ;offset-y = 1%
-radius = 8.0 
+;radius = 8.0 
 fixed-center = true
 bottom = false
-separator = |
+;separator = |
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -92,10 +90,10 @@ foreground = ${colors.foreground}
 line-size = 2
 line-color = #f00
  
-border-size = 6
-;border-bottom-size = 1
-;border-color = ${colors.background-alt2-darker}
-border-color = ${colors.transparent}
+;border-size = 6
+border-bottom-size = 1
+border-color = ${colors.background-alt2-darker}
+;border-color = ${colors.transparent}
 
 padding-left = 0
 padding-right = 1
@@ -114,7 +112,7 @@ font-3 = "Font Awesome 5 Free:pixelsize=12;3"
 
 modules-left = i3 cpu memory
 modules-center =
-modules-right = xwindow pulseaudio datebar2
+modules-right = xwindow2 pulseaudio datebar2
 
 ;tray-detached = true
 ;tray-position = center
@@ -180,22 +178,31 @@ ws-icon-default = 0
 
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:50:...%
+label =|  %title:0:75:...%
+
+[module/xwindow2]
+type = internal/xwindow
+label =%title:0:50:...%  |
 
 [module/cpu]
 type = internal/cpu
 interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.icons}
-;format-underline = #f90000
+format-underline = ${colors.icons}
+format-background = ${colors.module-bg}
 label = %percentage:2%%
+format-padding = 1
 
 [module/memory]
 type = internal/memory
 interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.icons}
+format-underline = ${colors.icons}
+format-background = ${colors.module-bg}
 label = %percentage_used%%
+format-padding = 1
 
 [module/date]
 type = internal/date
@@ -209,8 +216,9 @@ time-alt = %I:%M:%S%p
 
 format-prefix = " "
 format-prefix-foreground = ${colors.icons}
-;format-underline = #0a6cf5
-;format-underline = ${colors.secondary}
+format-underline = ${colors.icons}
+format-background = ${colors.module-bg}
+format-padding = 1
 
 label = %time% %date%
 
@@ -224,6 +232,9 @@ time = %I:%M:%S%p
 
 format-prefix = " "
 format-prefix-foreground = ${colors.icons}
+format-underline = ${colors.icons}
+format-background = ${colors.module-bg}
+format-padding = 1
 
 label = %time% %date%
 
@@ -235,10 +246,14 @@ format-volume =  <label-volume>
 label-volume = %percentage%%
 label-volume-foreground = ${root.foreground}
 
+format-volume-underline = ${colors.icons}
+format-volume-background = ${colors.module-bg}
+format-volume-padding = 1
+
 label-muted =  muted
 label-muted-foreground = #666
 
-bar-volume-width = 10
+bar-volume-width = 5
 bar-volume-foreground-0 = #55aa55
 bar-volume-foreground-1 = #55aa55
 bar-volume-foreground-2 = #55aa55
@@ -262,7 +277,14 @@ type = custom/script
 interval = 120
 format-prefix = " "
 format-prefix-foreground = ${colors.icons}
-exec = tail -1 Documents/Scripts/Polybar/pacupdate.sh
+exec = Documents/Scripts/Polybar/pacupdate.sh
+
+[module/upt]
+type = custom/script
+interval = 120
+format-prefix = 
+format-prefix-foreground = ${colors.icons}
+exec = bash Documents/Scripts/Polybar/upt.sh
 
 [module/tray]
 type = custom/text

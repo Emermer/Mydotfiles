@@ -11,7 +11,7 @@ super + shift + Escape
 #############
 
 # Open Rofi
-super + d
+super + r
 	rofi -show drun
 
 # Rofi-Power-Menu
@@ -47,7 +47,7 @@ super + g
 	steam
 
 # Discord (Chatting)
-super + c
+super + d
 	/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=discord com.discordapp.Discord
 
 # OBS (Recording/Streaming)
@@ -58,9 +58,9 @@ super + o
 super + n
 	virtualbox
 
-# Mailspring (Email Client)
+# Mailspring (Email)
 super + m
-	mailspring 
+	mailspring
 
 #####################################################################
 ############################ i3 Keybinds ############################
@@ -87,7 +87,7 @@ super + f
 	i3-msg fullscreen toggle
 
 # Change Container Layout (Stacked, Tabbed, Toggle Split)
-super + {f1,f2,f3}
+super + {F1,F2,F3}
 	i3-msg layout {stacking,tabbed,toggle split}
 
 # Toggle Tiling/Floating
@@ -107,7 +107,7 @@ super + shift + {1-9,0}
 	i3-msg move container to workspace {1,2,3,4,5,6,7,8,9,10}
 
 # Reload The Configuration File
-super + r
+super + shift + c
 	i3-msg reload
 
 # Restart i3 Inplace
@@ -120,21 +120,25 @@ super + shift + {d,f}
 
 # i3lock
 super + Escape
-	$HOME/.config/i3/i3lockconf.sh
+	~/.config/i3/i3lockconf.sh
 
 # Scratchpads
 # Bitwarden (Password Manager)
 alt + shift + 2
 	bitwarden-desktop
+#
 alt + 2
-	i3-msg [class="Bitwarden"] scratchpad show, move position center
+	~/.config/i3/scratchpads/scratchpad2.sh
 # Spotify (Music Player)
 alt + shift + 3
 	env LD_PRELOAD=/usr/lib/spotify-adblock.so spotify %U
+#
 alt + 3
-	i3-msg [class="Spotify"] scratchpad show, move position center
+	~/.config/i3/scratchpads/scratchpad3.sh
 # Terminator (Terminal Emulator)
 alt + shift + 1
 	terminator -T termsp
+#
 alt + 1
-	i3-msg [title="termsp"] scratchpad show, move position center
+	~/.config/i3/scratchpads/scratchpad1.sh
+	i3-msg [title="termsp"]

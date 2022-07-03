@@ -1,5 +1,6 @@
 # Bitwarden (Password Manager)
 for_window [class="Bitwarden"] move scratchpad, resize set width 960 px height 540 px
+#bindsym $mod+k [class="Bitwarden"] scratchpad show, move position center
 
 # Spotify (Music Player)
 for_window [class="Spotify"] move scratchpad, resize set width 1200 px height 840 px
