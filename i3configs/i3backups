@@ -58,4 +58,10 @@ exec_always cp /usr/lib/firefox/defaults/pref/autoconfig.js Documents/Configs/Co
 # Backup
 exec cp /usr/lib/firefox/defaults/pref/autoconfig.js Documents/Configs/Config-Backups/TemporaryBackup/firefox/autoconfig/
 
+# Alacritty
+# Temporary Backup
+exec_always cp .config/alacritty/* Documents/Configs/Config-Backups/TemporaryBackup/alacritty/
+# Backup
+exec cp .config/alacritty/* Documents/Configs/Config-Backups/Backup/alacritty/
+
 # Temporary Backups occur on every i3wm restart, while Backups occur only on every login to i3wm.

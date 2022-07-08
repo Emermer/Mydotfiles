@@ -76,4 +76,4 @@ urlbar_popup_full_width.css is VERY MUCH recommended for Firefox 71+ because of 
   color: white;
   }
 
-#back-button, #forward-button { display:none!important; }
+#nav-bar-customization-target{ -moz-box-ordinal-group: 2 }

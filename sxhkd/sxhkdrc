@@ -11,7 +11,7 @@ super + shift + Escape
 #############
 
 # Open Rofi
-super + r
+super + d
 	rofi -show drun
 
 # Rofi-Power-Menu
@@ -26,12 +26,12 @@ super + shift + b
 # LAUNCH APPS #
 ###############
 
-# Terminator (Terminal Emulator)
+# Alacritty (Terminal Emulator)
 super + Tab
-	terminator
+	alacritty
 
 # Flameshot (Screenshot GUI)
-super + shift + s
+super + s
 	flameshot gui
 
 # Firefox (Web Browser)
@@ -42,12 +42,16 @@ super + b
 super + t
 	pcmanfm
 
+# Ranger (File Manager)
+super + shift + t
+	terminator -e ranger
+
 # Steam (Gaming)
 super + g
 	steam
 
 # Discord (Chatting)
-super + d
+super + c
 	/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=discord com.discordapp.Discord
 
 # OBS (Recording/Streaming)
@@ -55,11 +59,11 @@ super + o
 	/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=obs com.obsproject.Studio
 
 # VirtualBox (Virtual Machine Manager)
-super + n
+super + m
 	virtualbox
 
 # Mailspring (Email)
-super + m
+super + e
 	mailspring
 
 #####################################################################
@@ -79,7 +83,7 @@ super + shift + {h,j,k,l}
 	i3-msg move {left,down,up,right}
 
 # Split In Horizontal/Vertical Orientation
-super + shift + {c,v}
+super + {q,w}
 	i3-msg split {h,v}
 
 # Enter Fullscreen Mode For the Focused Container
@@ -137,7 +141,7 @@ alt + 3
 	~/.config/i3/scratchpads/scratchpad3.sh
 # Terminator (Terminal Emulator)
 alt + shift + 1
-	terminator -T termsp
+	alacritty -t termsp
 #
 alt + 1
 	~/.config/i3/scratchpads/scratchpad1.sh
