@@ -44,7 +44,7 @@ super + t
 
 # Ranger (File Manager)
 super + shift + t
-	terminator -e ranger
+	alacritty -e ranger
 
 # Steam (Gaming)
 super + g
