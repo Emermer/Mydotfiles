@@ -15,3 +15,6 @@ gaps inner 8
 gaps outer 4
 # Window Border Settings
 for_window [class=".*"] border pixel 1
+
+#i3-master-layout Plugin
+exec --no-startup-id $HOME/.config/i3-master-layout/i3-master-layout.py

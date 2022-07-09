@@ -123,6 +123,12 @@ modules-right = xwindow2 pulseaudio datebar2
 ;wm-restack = bspwm
 ;wm-restack = i3
 
+[module/xmonad]
+type = custom/script
+exec = xmonad-log
+
+tail = true
+
 [module/i3]
 type = internal/i3
 format = <label-state> <label-mode>

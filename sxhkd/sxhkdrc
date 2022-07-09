@@ -58,9 +58,9 @@ super + c
 super + o
 	/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=obs com.obsproject.Studio
 
-# VirtualBox (Virtual Machine Manager)
+# Virt-manager (Virtual Machine Manager)
 super + m
-	virtualbox
+	virt-manager
 
 # Mailspring (Email)
 super + e

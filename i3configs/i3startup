@@ -1,3 +1,5 @@
+# Lxsession (Polkit)
+#exec --no-startup-id lxsession
 # Picom (Compositor)
 exec_always --no-startup-id $HOME/.config/picom/launch.sh
 # Polybar (Bar)
@@ -24,3 +26,5 @@ exec_always --no-startup-id xrandr --output HDMI-1 --primary --mode 1920x1080 --
 
 # Nitrogen (Background Manager) Restore
 exec_always --no-startup-id nitrogen --restore
+
+exec_always $HOME/.config/i3/i3masterstack.sh
