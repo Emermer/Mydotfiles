@@ -7,7 +7,7 @@ The autoconfig.cfg file contains this line:
 " var newTabURL = "file:///home/emermer/Documents/Configs/Firefox/homepagehtml/index.html"; "
 
 As you can see, it contains a file directory that isn't on your system. This file directory tells Firefox what to display on new tabs.
-So, if you want to have a custom homepage like me, you will need to change the file directory to where your html file is located.
+So, if you want to have a custom new tabs homepage like me, you will need to change the file directory to where your html file is located.
 The directory should look like this for Firefox to recognize it: file:///path/to/file/index.html
 
 You will need an html file to have a custom homepage. If you don't have one you can either use mine and change it to how you see fit or search up how to get make one.
