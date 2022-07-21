@@ -24,7 +24,7 @@ urlbar_popup_full_width.css is VERY MUCH recommended for Firefox 71+ because of 
 #scrollbutton-down{ border-block-width: 2px !important; }
 
 /* Override for other densities */
-:root[uidensity="compact"] #navigator-toolbox{ --uc-toolbar-height: 37px; }
+:root[uidensity="compact"] #navigator-toolbox{ --uc-toolbar-height: 35px; }
 :root[uidensity="touch"] #navigator-toolbox{ --uc-toolbar-height: 44px; }
 
 /* prevent urlbar overflow on narrow windows */
