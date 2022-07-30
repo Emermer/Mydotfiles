@@ -1,0 +1,68 @@
+set $mod Mod4
+floating_modifier $mod
+font pango:JetBrainsMono Nerd Font Regular 11
+bindsym 0+Shift+a workspace next
+bindsym 0+Shift+b workspace prev
+bindsym 0+Shift+s workspace back_and_forth
+
+exec_always --no-startup-id $HOME/Documents/startup.sh
+exec --no-startup-id bitwarden-desktop
+exec --no-startup-id alacritty -t termsp
+
+for_window [class="Bitwarden"] move scratchpad, resize set width 960 px height 540 px
+for_window [class="Spotify"] move scratchpad, resize set width 1200 px height 840 px
+for_window [title="termsp"] move scratchpad, resize set width 960 px height 540 px
+
+# class                 border  backgr. text    indicator child_border
+client.focused          #4c7899 #285577 #ffffff #9c9c9c   #5c5c5c
+client.focused_inactive #333333 #5f676a #ffffff #7c7c7c   #4c4c4c
+client.unfocused        #333333 #222222 #888888 #1c1c1c   #1c1c1c
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+
+client.background       #ffffff
+
+smart_gaps on
+smart_borders on
+gaps inner 8
+gaps outer 4
+for_window [class=".*"] border pixel 1
+exec_always --no-startup-id $HOME/.config/i3-master-layout/i3-master-layout.py
+
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+set $op1 output HDMI-1
+set $op2 output DP-3
+
+for_window [class="discord"] move to workspace $ws9
+for_window [class="Steam|heroic|Lutris|GeForce NOW|lunarclient"] move to workspace $ws4
+for_window [class="obs"] move to workspace $ws10
+for_window [class="VirtualBox Machine|VirtualBox Manager|Virt-manager"] move to workspace $ws5
+for_window [class="Mailspring"] move to workspace $ws3
+
+workspace $ws1 output $op1
+workspace $ws2 output $op1
+workspace $ws3 output $op1
+workspace $ws4 output $op1
+workspace $ws5 output $op1
+workspace $ws6 output $op2
+workspace $ws7 output $op2
+workspace $ws8 output $op2
+workspace $ws9 output $op2
+workspace $ws10 output $op2
+
+for_window [title="Picture in picture"] move to output $op2
+for_window [title="Picture-in-Picture"] move to output $op2
+
+for_window [class="gnome-calendar"] floating enable, resize set width 1100 px height 640 px, move position center
+
+include ~/.config/i3/i3backups

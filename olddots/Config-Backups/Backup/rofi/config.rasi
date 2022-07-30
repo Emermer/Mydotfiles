@@ -1,0 +1,14 @@
+configuration {
+	kb-cancel: "Escape,super+d";
+	display-drun: "(Ctrl+Tab To Cycle Modi) Applications";
+	display-calc: "(Ctrl+Tab To Cycle Modi) Calculator";
+	display-emoji: "(Ctrl+Tab To Cycle Modi) Emojis";
+	display-window: "(Ctrl+Tab To Cycle Modi) Windows";
+	drun-display-format: "{icon} {name}";
+	font: "Hack Nerd Font 12";
+	show-icons: true;
+	icon-theme: "Papirus-Dark";
+	modi: "drun,window,calc";
+}
+
+@theme "theme.rasi"

@@ -1,0 +1,80 @@
+super + shift + Escape
+	pkill -USR1 -x sxhkd
+
+super + d
+	rofi -show drun
+
+super + shift + e
+	rofi -show power-menu -modi power-menu:rofi-power-menu
+
+super + {Tab,s,b,t,g,m,o,v,e}
+	{alacritty,flameshot gui,firefox,krusader,steam,/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=discord com.discordapp.Discord,/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=obs com.obsproject.Studio,virt-manager,mailspring}
+
+super + shift + t
+	alacritty -e ranger
+
+#####################################################################
+############################ i3 Keybinds ############################
+#####################################################################
+
+# Change Focus
+super + {h,j,k,l}
+        i3-msg focus {left,down,up,right}
+
+# Split In Horizontal/Vertical Orientation
+super + {q,w}
+        i3-msg split {h,v}
+
+# Enter Fullscreen Mode For the Focused Container
+super + f
+        i3-msg fullscreen toggle
+
+# Change Container Layout (Stacked, Tabbed, Toggle Split)
+super + {F1,F2,F3}
+        i3-msg layout {stacking,tabbed,toggle split}
+
+# Change Focus Between Tiling/Floating Windows
+super + space
+        i3-msg focus mode_toggle
+
+# Switch To Workspace
+super + {1-9,0}
+        i3-msg workspace {1,2,3,4,5,6,7,8,9,10}
+
+# i3lock
+super + Escape
+        ~/.config/i3/i3lockconf.sh
+
+# Close (Kill) Applications
+super + shift + q
+	i3-msg kill
+
+# Move Focused Window
+super + shift + {h,j,k,l}
+	i3-msg move {left,down,up,right}
+
+# Toggle Tiling/Floating
+super + shift + space
+	i3-msg floating toggle
+
+# Move Focused Container To Workspace
+super + shift + {1-9,0}
+	i3-msg move container to workspace {1,2,3,4,5,6,7,8,9,10}
+
+# Reload The Configuration File
+super + r
+	i3-msg reload
+
+# Restart i3 Inplace
+super + shift + r
+	i3-msg restart
+
+# Move Focused Workspace To Other Monitor
+super + shift + {d,f}
+	i3-msg move workspace to output {HDMI-1,DP-3}
+
+# Scratchpads
+super + shift + {z,x,c}
+	{alacritty -t termsp,bitwarden-desktop,env LD_PRELOAD=/usr/lib/spotify-adblock.so spotify %U}
+super + {z,x,c}
+	~/.config/i3/scratchpads/scratchpad{1,2,3}.sh

@@ -1,0 +1,26 @@
+# Picom (Compositor)
+exec_always --no-startup-id $HOME/.config/picom/launch.sh
+# Polybar (Bar)
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+# sxhkd (Hotkey Daemon)
+exec --no-startup-id sxhkd
+# nm-applet (Network Manager System Tray Icon)
+exec --no-startup-id nm-applet
+# Flameshot (Screenshot GUI)
+exec --no-startup-id flameshot
+# redshift (Automatic Blue-light Decreaser)
+exec_always --no-startup-id redshift-gtk -c $HOME/Documents/Configs/redshift/redshift.conf
+
+# Scratchpads
+# Bitwarden (Password Manager)
+exec --no-startup-id bitwarden-desktop
+# Spotify (Music Player)
+#exec --no-startup-id env LD_PRELOAD=/usr/lib/spotify-adblock.so spotify %U
+# Alacritty (Terminal Emulator)
+exec --no-startup-id alacritty -t termsp
+
+# Xrandr Display Config
+exec_always --no-startup-id xrandr --output HDMI-1 --primary --mode 1920x1080 --rate 144 --pos 0x0 --rotate normal --output DP-3 --mode 1680x1050 --pos 1920x30 --rotate normal
+
+# Nitrogen (Background Manager) Restore
+exec_always --no-startup-id nitrogen --restore
