@@ -1,0 +1,127 @@
+############### REQUIRED COMMANDS ###############
+# Mod Key (Super)
+set $mod Mod4
+#
+# Workspace Cycler
+# Disabled By Starting the Bindings With "0"
+bindsym 0+Shift+a workspace next
+bindsym 0+Shift+b workspace prev
+bindsym 0+Shift+s workspace back_and_forth
+#################################################
+
+# System Font
+font pango:monospace 11
+
+# XDG autostart
+exec --no-startup-id dex --autostart --environment i3
+
+# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
+# screen before suspend. Use loginctl lock-session to lock your screen.
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+
+# NetworkManager system tray GUI (nm-applet)
+exec --no-startup-id nm-applet
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $ws1 "1"
+set $ws2 "2-Discord"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8-Spotify"
+set $ws9 "9-Virtual Machine"
+set $ws10 "10-OBS"
+
+# Start Bumblebee-status (Bar)
+bar {
+	font pango:Font Awesome 11
+	position top
+	tray_output HDMI-0
+	status_command ~/.config/bumblebee-status/bumblebee-status \
+		-m cpu spotify pasink time \
+		-p time.format="%a %m-%d-%Y %I:%M:%S%p" nvidiagpu.interval=0.5s cpu.interval=2s memory.interval=2s time.interval=0.1s \
+		-t night-powerline
+colors {
+        background #0c0c0c
+        statusline #ffffff
+        separator #666666
+	                   #border #backgr.#text
+        focused_workspace  #8c8c8c #5c5c5c #ffffff
+        active_workspace   #7c7c7c #4c4c4c #000000
+        inactive_workspace #1c1c1c #1c1c1c #888888
+        urgent_workspace   #2f343a #900000 #ffffff
+        binding_mode       #2f343a #900000 #ffffff
+    }
+}
+
+# class                 border  backgr. text    indicator child_border
+client.focused          #4c7899 #285577 #ffffff #9c9c9c   #5c5c5c
+client.focused_inactive #333333 #5f676a #ffffff #7c7c7c   #4c4c4c
+client.unfocused        #333333 #222222 #888888 #1c1c1c   #1c1c1c
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+
+client.background       #ffffff
+
+# i3 Gaps
+smart_gaps on
+smart_borders on
+gaps inner 8
+gaps outer 4
+# Window Border Settings
+for_window [class=".*"] border pixel 3
+
+# Startup Apps
+# Discord (Chat App)
+exec /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=discord com.discordapp.Discord
+# Flameshot (Screenshot GUI)
+exec_always flameshot
+# Picom (Compositor)
+exec_always picom
+# Terminator (Terminal)
+exec terminator
+# OBS (Recording/Streaming Software)
+exec obs
+# Nitrogen (Background Manager) Restore
+exec_always nitrogen --restore
+# SXHKD (Keybinds)
+exec_always sxhkd
+
+# Backup i3wm Config
+#
+# copy i3 config to temporary backup folder on every i3wm restart
+exec_always cp .config/i3/config /mnt/sdb1/i3Configs/TemporaryBackup/
+#copy 13 config to backup on every login
+exec cp .config/i3/config /mnt/sdb1/i3Configs/Backup/
+
+# Start Display Config On Startup (xrandr)
+exec_always xrandr --output DVI-I-0 --off --output DVI-I-1 --off --output HDMI-0 --primary --mode 1920x1080 --rate 144 --pos 0x0 --rotate normal --output DP-0 --mode 1600x900 --pos 1920x180 --rotate normal --output DP-1 --off --output DP-2 --off --output DP-3 --off --output DP-4 --off --output DP-5 --off
+
+# Applications Always On Certain Workspace
+for_window [class="discord"] move to workspace $ws2
+#for_window [class="VirtualBox"] move to workspace $ws10
+for_window [class="VirtualBox Machine"] move to workspace $ws9
+for_window [class="Spotify"] move to workspace $ws8
+for_window [class="obs"] move to workspace $ws10
+
+# Workspace Always On Certain Monitor
+workspace $ws1 output HDMI-0
+workspace $ws2 output DP-0
+workspace $ws8 output HDMI-0
+workspace $ws9 output HDMI-0
+workspace $ws10 output DP-0
+
+# Picture-in-Picture Mode Always On Second Monitor
+# Brave
+for_window [title="Picture in picture"] move to output DP-0
+# Firefox
+for_window [title="Picture-in-Picture"] move to output DP-0
+
+# Always Float
+for_window [class="Galculator"] floating enable

@@ -1,0 +1,15 @@
+include $HOME/.config/i3/i3settings
+include $HOME/.config/i3/i3rules
+include $HOME/.config/i3/i3startup
+include $HOME/.config/i3/i3backups
+include $HOME/.config/i3/i3scratchpads
+
+set $mod Mod4
+floating_modifier $mod
+font pango:JetBrainsMono Nerd Font Regular 11
+
+bindsym 0+Shift+a workspace next
+bindsym 0+Shift+b workspace prev
+bindsym 0+Shift+s workspace back_and_forth
+
+exec xautolock -time 8 -locker "i3lock -c 1c1c1c --show-failed-attempts"

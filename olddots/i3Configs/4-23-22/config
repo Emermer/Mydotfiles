@@ -1,0 +1,13 @@
+include $HOME/.config/i3/i3settings
+include $HOME/.config/i3/i3rules
+include $HOME/.config/i3/i3startup
+
+exec --no-startup-id dex --autostart --environment i3
+
+set $mod Mod4
+floating_modifier $mod
+font pango:Hack NF Regular 10
+
+bindsym 0+Shift+a workspace next
+bindsym 0+Shift+b workspace prev
+bindsym 0+Shift+s workspace back_and_forth

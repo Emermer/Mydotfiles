@@ -1,0 +1,11 @@
+configuration {
+	kb-cancel: "Escape,super+d";
+	display-drun: "Applications";
+	display-window: "Windows:";
+	drun-display-format: "{icon} {name}";
+	font: "monospace 11";
+	show-icons: true;
+	icon-theme: "Papirus-Dark";
+}
+
+@theme "theme.rasi"
