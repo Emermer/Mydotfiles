@@ -1,0 +1,20 @@
+bar {
+        font pango:Font Awesome 11
+        position top
+        tray_output HDMI-0
+        status_command ~/.config/bumblebee-status/bumblebee-status \
+                -m nvidiagpu cpu memory spotify pasink time \
+                -p time.format="%a %m-%d-%Y %I:%M:%S%p" nvidiagpu.interval=0.5s cpu.interval=2>
+                -t night-powerline
+colors {
+        background #0c0c0c
+        statusline #ffffff
+        separator #666666
+                           #border #backgr.#text
+        focused_workspace  #8c8c8c #5c5c5c #ffffff
+        active_workspace   #7c7c7c #4c4c4c #000000
+        inactive_workspace #1c1c1c #1c1c1c #888888
+        urgent_workspace   #2f343a #900000 #ffffff
+        binding_mode       #2f343a #900000 #ffffff
+    }
+}
