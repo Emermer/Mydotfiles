@@ -6,7 +6,6 @@ bindsym 0+Shift+b workspace prev
 bindsym 0+Shift+s workspace back_and_forth
 
 exec_always --no-startup-id $HOME/Documents/Scripts/startup.sh
-exec --no-startup-id sxhkd
 exec --no-startup-id bitwarden-desktop
 exec --no-startup-id kitty -T Terminal-Scratchpad
 exec --no-startup-id kitty -T Cmus-Scratchpad -e cmus
