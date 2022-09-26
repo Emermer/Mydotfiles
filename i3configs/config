@@ -4,6 +4,8 @@ font pango:JetBrainsMono Nerd Font Regular 11
 bindsym 0+Shift+a workspace next
 bindsym 0+Shift+b workspace prev
 bindsym 0+Shift+s workspace back_and_forth
+bindsym $mod+Shift+r restart
+bindsym $mod+r reload
 
 exec_always --no-startup-id $HOME/Documents/Scripts/startup.sh
 exec --no-startup-id bitwarden-desktop
