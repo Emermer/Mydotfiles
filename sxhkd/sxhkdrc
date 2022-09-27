@@ -1,148 +1,68 @@
-# Restart SXHKDRC File
 super + shift + Escape
 	pkill -USR1 -x sxhkd
 
-#####################################################################
-########################## Custom Keybinds ##########################
-#####################################################################
-
-#############
-# ROFI MENU #
-#############
-
-# Open Rofi
 super + d
 	rofi -show drun
 
-# Rofi-Power-Menu
 super + shift + e
 	rofi -show power-menu -modi power-menu:rofi-power-menu
 
-# Rofi-Beats
-super + shift + b
-	$HOME/.config/Rofi-Beats/rofi-beats
+super + {Tab,s,b,t,g,m,o,v,e}
+	{kitty,flameshot gui,firefox,pcmanfm,steam,/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=discord com.discordapp.Discord,/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=obs com.obsproject.Studio,virt-manager,mailspring}
 
-###############
-# LAUNCH APPS #
-###############
-
-# Alacritty (Terminal Emulator)
-super + Tab
-	alacritty
-
-# Flameshot (Screenshot GUI)
-super + s
-	flameshot gui
-
-# Firefox (Web Browser)
-super + b
-	firefox
-
-# PCManFM (File Manager)
-super + t
-	pcmanfm
-
-# Ranger (File Manager)
 super + shift + t
-	alacritty -e ranger
-
-# Steam (Gaming)
-super + g
-	steam
-
-# Discord (Chatting)
-super + c
-	/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=discord com.discordapp.Discord
-
-# OBS (Recording/Streaming)
-super + o
-	/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=obs com.obsproject.Studio
-
-# Virt-manager (Virtual Machine Manager)
-super + m
-	virt-manager
-
-# Mailspring (Email)
-super + e
-	mailspring
+	kitty -e ranger
 
 #####################################################################
 ############################ i3 Keybinds ############################
 #####################################################################
 
+# Change Focus
+super + {h,j,k,l}
+        i3-msg focus {left,down,up,right}
+
+# Enter Fullscreen Mode For the Focused Container
+super + f
+        i3-msg fullscreen toggle
+
+# Change Container Layout (Stacked, Tabbed, Toggle Split)
+super + {F1,F2,F3}
+        i3-msg layout {stacking,tabbed,toggle split}
+
+# Change Focus Between Tiling/Floating Windows
+super + space
+        i3-msg focus mode_toggle
+
+# Switch To Workspace
+super + {1-9,0}
+        i3-msg workspace {1,2,3,4,5,6,7,8,9,10}
+
+# i3lock
+super + Escape
+	betterlockscreen -l blur off
+
 # Close (Kill) Applications
 super + shift + q
 	i3-msg kill
-
-# Change Focus
-super + {h,j,k,l}
-	i3-msg focus {left,down,up,right}
 
 # Move Focused Window
 super + shift + {h,j,k,l}
 	i3-msg move {left,down,up,right}
 
-# Split In Horizontal/Vertical Orientation
-super + {q,w}
-	i3-msg split {h,v}
-
-# Enter Fullscreen Mode For the Focused Container
-super + f
-	i3-msg fullscreen toggle
-
-# Change Container Layout (Stacked, Tabbed, Toggle Split)
-super + {F1,F2,F3}
-	i3-msg layout {stacking,tabbed,toggle split}
-
 # Toggle Tiling/Floating
 super + shift + space
 	i3-msg floating toggle
-
-# Change Focus Between Tiling/Floating Windows
-super + space
-	i3-msg focus mode_toggle
-
-# Switch To Workspace
-super + {1-9,0}
-	i3-msg workspace {1,2,3,4,5,6,7,8,9,10}
 
 # Move Focused Container To Workspace
 super + shift + {1-9,0}
 	i3-msg move container to workspace {1,2,3,4,5,6,7,8,9,10}
 
-# Reload The Configuration File
-super + shift + c
-	i3-msg reload
-
-# Restart i3 Inplace
-super + shift + r
-	i3-msg restart
-
 # Move Focused Workspace To Other Monitor
 super + shift + {d,f}
 	i3-msg move workspace to output {HDMI-1,DP-3}
 
-# i3lock
-super + Escape
-	~/.config/i3/i3lockconf.sh
-
 # Scratchpads
-# Bitwarden (Password Manager)
-alt + shift + 2
-	bitwarden-desktop
-#
-alt + 2
-	~/.config/i3/scratchpads/scratchpad2.sh
-# Spotify (Music Player)
-alt + shift + 3
-	env LD_PRELOAD=/usr/lib/spotify-adblock.so spotify %U
-#
-alt + 3
-	~/.config/i3/scratchpads/scratchpad3.sh
-# Terminator (Terminal Emulator)
-alt + shift + 1
-	alacritty -t termsp
-#
-alt + 1
-	~/.config/i3/scratchpads/scratchpad1.sh
-	i3-msg [title="termsp"]
+super + shift + {z,x,c}
+	{kitty -T Terminal-Scratchpad,bitwarden-desktop,kitty -T Cmus-Scratchpad -e cmus}
+super + {z,x,c}
+	~/.config/i3/scratchpads/scratchpad{1,2,3}.sh
