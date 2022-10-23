@@ -5,30 +5,24 @@ bindsym 0+Shift+a workspace next
 bindsym 0+Shift+b workspace prev
 bindsym 0+Shift+s workspace back_and_forth
 bindsym $mod+Shift+r restart
-bindsym $mod+r reload
+bindsym $mod+l reload
+
+for_window [title="Terminal-Scratchpad|Cmus-Scratchpad|Ncpamixer-Scratchpad"] move scratchpad, resize set width 960 px height 540 px
+for_window [class="Bitwarden"] move scratchpad, resize set width 960 px height 540 px
+for_window [title="Picture-in-Picture|Picture in picture"] move to output $op2
+for_window [title="Picture-in-Picture|Picture in picture"] resize set width 1280 px height 720 px, move position 1960 px 125 px
+for_window [class="gnome-calendar"] floating enable, resize set width 1100 px height 640 px, move position center
+for_window [class="discord"] move to workspace $ws9
+for_window [class="Steam|heroic|Lutris|GeForce NOW|lunarclient"] move to workspace $ws5
+for_window [class="obs"] move to workspace $ws10
+for_window [class="VirtualBox Machine|VirtualBox Manager|Virt-manager"] move to workspace $ws6
+for_window [class="Mailspring"] move to workspace $ws4
 
 exec_always --no-startup-id $HOME/Documents/Scripts/startup.sh
-exec --no-startup-id bitwarden-desktop
 exec --no-startup-id kitty -T Terminal-Scratchpad
 exec --no-startup-id kitty -T Cmus-Scratchpad -e cmus
-
-for_window [class="Bitwarden"] move scratchpad, resize set width 960 px height 540 px
-for_window [title="Terminal-Scratchpad|Cmus-Scratchpad"] move scratchpad, resize set width 960 px height 540 px
-
-# class                 border  backgr. text    indicator child_border
-client.focused          #4c7899 #285577 #ffffff #5c5c5c   #5c5c5c
-client.focused_inactive #333333 #5f676a #ffffff #3c3c3c   #3c3c3c
-client.unfocused        #333333 #222222 #888888 #1c1c1c   #1c1c1c
-client.urgent           #2f343a #900000 #ffffff #900000   #900000
-client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
-
-client.background       #ffffff
-
-smart_gaps on
-smart_borders on
-gaps inner 8
-gaps outer 2
-for_window [class=".*"] border pixel 1
+exec --no-startup-id kitty -T Ncpamixer-Scratchpad -e ncpamixer
+exec --no-startup-id bitwarden-desktop
 
 set $ws1 "1"
 set $ws2 "2"
@@ -44,24 +38,28 @@ set $ws10 "10"
 set $op1 output HDMI-1
 set $op2 output DP-3
 
-for_window [class="discord"] move to workspace $ws9
-for_window [class="Steam|heroic|Lutris|GeForce NOW|lunarclient"] move to workspace $ws4
-for_window [class="obs"] move to workspace $ws10
-for_window [class="VirtualBox Machine|VirtualBox Manager|Virt-manager"] move to workspace $ws5
-for_window [class="Mailspring"] move to workspace $ws3
-
 workspace $ws1 output $op1
 workspace $ws2 output $op1
 workspace $ws3 output $op1
 workspace $ws4 output $op1
 workspace $ws5 output $op1
-workspace $ws6 output $op2
+workspace $ws6 output $op1
 workspace $ws7 output $op2
 workspace $ws8 output $op2
 workspace $ws9 output $op2
 workspace $ws10 output $op2
 
-for_window [title="Picture-in-Picture|Picture in picture"] move to output $op2
-for_window [title="Picture-in-Picture|Picture in picture"] resize set width 1280 px height 720 px, move position 1960 px 125 px
+# class                 border  backgr. text    indicator child_border
+client.focused          #4c7899 #285577 #ffffff #5c5c5c   #5c5c5c
+client.focused_inactive #333333 #5f676a #ffffff #3c3c3c   #3c3c3c
+client.unfocused        #333333 #222222 #888888 #1c1c1c   #1c1c1c
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 
-for_window [class="gnome-calendar"] floating enable, resize set width 1100 px height 640 px, move position center
+client.background       #ffffff
+
+smart_gaps on
+smart_borders on
+gaps inner 8
+gaps outer 2
+for_window [class=".*"] border pixel 1
