@@ -1,17 +1,14 @@
 super + shift + Escape
 	pkill -USR1 -x sxhkd
 
-super + d
+super + r
 	rofi -show drun
 
 super + shift + e
 	rofi -show power-menu -modi power-menu:rofi-power-menu
 
-super + {Tab,s,b,t,g,m,o,v,e}
+super + {Tab,s,b,f,g,d,o,m,e}
 	{kitty,flameshot gui,firefox,pcmanfm,steam,/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=discord com.discordapp.Discord,/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=obs com.obsproject.Studio,virt-manager,mailspring}
-
-super + shift + t
-	kitty -e ranger
 
 #####################################################################
 ############################ i3 Keybinds ############################
@@ -22,7 +19,7 @@ super + {h,j,k,l}
         i3-msg focus {left,down,up,right}
 
 # Enter Fullscreen Mode For the Focused Container
-super + f
+super + shift + f
         i3-msg fullscreen toggle
 
 # Change Container Layout (Stacked, Tabbed, Toggle Split)
@@ -57,12 +54,8 @@ super + shift + space
 super + shift + {1-9,0}
 	i3-msg move container to workspace {1,2,3,4,5,6,7,8,9,10}
 
-# Move Focused Workspace To Other Monitor
-super + shift + {d,f}
-	i3-msg move workspace to output {HDMI-1,DP-3}
-
 # Scratchpads
-super + shift + {z,x,c}
-	{kitty -T Terminal-Scratchpad,bitwarden-desktop,kitty -T Cmus-Scratchpad -e cmus}
-super + {z,x,c}
-	~/.config/i3/scratchpads/scratchpad{1,2,3}.sh
+super + shift + {z,x,c,v}
+	{kitty -T Terminal-Scratchpad,bitwarden-desktop,kitty -T Cmus-Scratchpad -e cmus,kitty -T Ncpamixer-Scratchpad -e ncpamixer}
+super + {z,x,c,v}
+	~/.config/i3/scratchpads/scratchpad{1,2,3,4}.sh
