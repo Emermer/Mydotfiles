@@ -312,7 +312,9 @@ screens = [
                 other_current_screen_border='#0180d3',
                 other_screen_border='#3c3c3c',
                 disable_drag=True,
-                hide_unused=True
+                hide_unused=True,
+                fontsize=16,
+                font='Font Awesome 5 Free Solid'
                 ),
                 widget.Spacer(length=20
                 ),
