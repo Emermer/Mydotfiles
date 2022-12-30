@@ -210,7 +210,6 @@ screens = [
                 ),
                 widget.Spacer(length=20
                 ),
-                # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 #widget.StatusNotifier(
                 #),
                 widget.Systray(
@@ -303,7 +302,7 @@ screens = [
             widget.GroupBox(rounded=False,
                 highlight_method="block",
                 margin_x=0,
-                margin_y=3,
+                margin_y=5,
                 padding_x=8,
                 padding_y=7,
                 this_current_screen_border='#0180d3',
