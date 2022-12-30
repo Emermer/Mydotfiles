@@ -152,10 +152,10 @@ floating_layout = layout.Floating(
 to_position = config.Match(title="Picture-in-Picture")
 @hook.subscribe.client_managed
 def _(win: base.WindowType) -> None:
-    if isinstance(win, base.Window):  # Ignore Static windows
-        if win.match(to_position):  # Find matching windows
-            win.cmd_set_position_floating(1960, 125)  # x, y
-            win.cmd_set_size_floating(1280, 720)  # width, height
+    if isinstance(win, base.Window):
+        if win.match(to_position):
+            win.cmd_set_position_floating(1960, 125)
+            win.cmd_set_size_floating(1280, 720)
 
 
 ###################################
@@ -168,8 +168,6 @@ widget_defaults = dict(
     padding=2,
     background='#212121'
 )
-#extension_defaults = widget_defaults.copy()
-
 screens = [
     Screen(
         top=bar.Bar([
@@ -210,8 +208,6 @@ screens = [
                 ),
                 widget.Spacer(length=20
                 ),
-                #widget.StatusNotifier(
-                #),
                 widget.Systray(
                 ),
                 widget.TextBox('',
