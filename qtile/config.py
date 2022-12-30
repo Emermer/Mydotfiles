@@ -5,10 +5,10 @@
 
 import os
 import subprocess
-from libqtile import bar, layout, widget, hook, qtile
+from libqtile import bar, layout, widget, hook, qtile, config
 from libqtile.config import Click, Drag, Group, Key, Match, Screen, ScratchPad, DropDown
 from libqtile.lazy import lazy
-#from libqtile.utils import guess_terminal
+from libqtile.backend import base
 
 @hook.subscribe.startup_once
 def autostart ():
@@ -96,9 +96,9 @@ for i in groups:
 
 # Definitions
 groups.append(ScratchPad("scratchpad", [
-    DropDown("termsp", "kitty -T termsp", width=0.5, height=0.5, x=0.25, y=0.25, opacity=1),
-    DropDown("bitwardensp", "bitwarden-desktop", width=0.5, height=0.5, x=0.25, y=0.25, opacity=1),
-    DropDown("cmussp", "kitty -T cmussp -e cmus", width=0.5, height=0.5, x=0.25, y=0.25, opacity=1),
+    DropDown("termsp", "kitty -T termsp", width=0.7, height=0.7, x=0.15, y=0.15, opacity=1),
+    DropDown("bitwardensp", "bitwarden-desktop", width=0.7, height=0.7, x=0.15, y=0.15, opacity=1),
+    DropDown("cmussp", "kitty -T cmussp -e cmus", width=0.7, height=0.7, x=0.15, y=0.15, opacity=1),
 ]))
 
 # Keybindings
@@ -148,6 +148,16 @@ floating_layout = layout.Floating(
     ]
 )
 
+# Make picture in picture mode open with specific dimensions
+to_position = config.Match(title="Picture-in-Picture")
+@hook.subscribe.client_managed
+def _(win: base.WindowType) -> None:
+    if isinstance(win, base.Window):  # Ignore Static windows
+        if win.match(to_position):  # Find matching windows
+            win.cmd_set_position_floating(1960, 125)  # x, y
+            win.cmd_set_size_floating(1280, 720)  # width, height
+
+
 ###################################
 ######## BAR CONFIGURATION ########
 ###################################
@@ -182,6 +192,8 @@ screens = [
                 ),
                 widget.Sep(
                 ),
+                widget.Spacer(length=5
+                ),
                 widget.TaskList(border='#015187',
                 background='#141414',
                 icon_size=0,
@@ -191,6 +203,8 @@ screens = [
                 margin=-2,
                 title_width_method = "uniform",
                 rounded=False
+                ),
+                widget.Spacer(length=5
                 ),
                 widget.Sep(
                 ),
@@ -225,20 +239,28 @@ screens = [
                 foreground='#0180d3',
                 background='#2c2c2c'
                 ),
-                widget.Memory(measure_mem='G',
+                widget.Spacer(length=-2,
                 background='#2c2c2c'
+                ),
+                widget.Memory(measure_mem='G',
+                background='#2c2c2c',
+                update_interval=2
                 ),
                 widget.Spacer(length=10,
                 background='#2c2c2c'
                 ),
-                widget.TextBox(' ',
-                font='Font Awesome 5 Free',
-                fontsize=17,
+                widget.TextBox(' ',
+                font='JetBrainsMono Nerd Font',
+                fontsize=24,
                 foreground='#0180d3',
                 background='#2c2c2c'
                 ),
-                widget.CPU(format='{load_percent}%',
+                widget.Spacer(length=-5,
                 background='#2c2c2c'
+                ),
+                widget.CPU(format='{load_percent}%',
+                background='#2c2c2c',
+                update_interval=2
                 ),
                 widget.TextBox('',
                 font='Font Awesome 5 Free',
@@ -297,37 +319,51 @@ screens = [
                 widget.TextBox('',
                 font='Font Awesome 5 Free',
                 fontsize=30,
-                foreground='#171717',
-                padding=-2
+                foreground='#333333',
+                padding=0
                 ),
                 widget.Spacer(length=4,
-                background='#171717'
+                background='#333333'
                 ),
                 widget.TextBox(' ',
                 font='Font Awesome 5 Free',
                 fontsize=17,
                 foreground='#0180d3',
-                background='#171717'
+                background='#333333'
                 ),
-                widget.Memory(measure_mem='G',
-                background='#171717'
+                widget.Memory(
+                background='#333333',
+                update_interval=2
                 ),
                 widget.Spacer(length=10,
-                background='#171717'
+                background='#333333'
                 ),
-                widget.TextBox(' ',
-                font='Font Awesome 5 Free',
-                fontsize=17,
+                widget.TextBox(' ',
+                font='JetBrainsMono Nerd Font',
+                fontsize=24,
                 foreground='#0180d3',
-                background='#171717'
+                background='#333333'
                 ),
-                widget.CPU(format='{load_percent}%',
-                background='#171717'
+                widget.Spacer(length=-10,
+                background='#333333'
+                ),
+                widget.CPU(format='{load_percent}% {freq_current}GHz',
+                background='#333333',
+                update_interval=2
                 ),
                 widget.Spacer(length=10,
+                background='#333333'
+                ),
+                widget.TextBox('',
+                font='Font Awesome 5 Free',
+                fontsize=30,
+                foreground='#171717',
+                background='#333333',
+                padding=0
+                ),
+                widget.Spacer(length=4,
                 background='#171717'
                 ),
-                #
                 widget.TextBox('',
                 font='Font Awesome 5 Free Solid',
                 fontsize=17,
@@ -354,6 +390,8 @@ screens = [
                 ),
                 widget.Sep(
                 ),
+                widget.Spacer(length=5
+                ),
                 widget.TaskList(border='#015187',
                 background='#141414',
                 icon_size=0,
@@ -364,7 +402,11 @@ screens = [
                 title_width_method = "uniform",
                 rounded=False
                 ),
+                widget.Spacer(length=5
+                ),
                 widget.Sep(
+                ),
+                widget.Spacer(length=10
                 ),
             ], 28),
         )
@@ -378,8 +420,5 @@ auto_fullscreen = True
 focus_on_window_activation = "smart"
 reconfigure_screens = True
 auto_minimize = True
-
-# When using the Wayland backend, this can be used to configure input devices.
 wl_input_rules = None
-
 wmname = "Qtile"
