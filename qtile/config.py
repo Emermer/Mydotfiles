@@ -1,4 +1,3 @@
-
 ###################################
 ## IMPORTS/AUTOSTART/DEFINITIONS ##
 ###################################
@@ -34,6 +33,7 @@ keys = [
     Key([mod], "e", lazy.spawn("mailspring"), desc="Launch Mail App"),
     Key([mod], "m", lazy.spawn("virt-manager"), desc="Launch Virtual Machine Manager"),
     Key([mod], "o", lazy.spawn("/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=obs com.obsproject.Studio"), desc="Launch OBS"),
+    Key([mod], "escape", lazy.spawn("betterlockscreen -l blur"), desc="Lock Screen"),
 
     # Change focus/Move Focused Window/Resize Focused Window
     Key([mod], "h", lazy.layout.left(), desc="Move focus left"),
@@ -239,7 +239,8 @@ screens = [
                 ),
                 widget.Memory(measure_mem='G',
                 background='#2c2c2c',
-                update_interval=2
+                update_interval=2,
+                format='{MemUsed: .0f}{mm} /{MemTotal: .0f}{mm}'
                 ),
                 widget.Spacer(length=10,
                 background='#2c2c2c'
@@ -330,7 +331,8 @@ screens = [
                 ),
                 widget.Memory(
                 background='#333333',
-                update_interval=2
+                update_interval=2,
+                format='{MemUsed: .0f}{mm} /{MemTotal: .0f}{mm}'
                 ),
                 widget.Spacer(length=10,
                 background='#333333'
