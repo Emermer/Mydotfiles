@@ -8,7 +8,7 @@ super + shift + e
 	rofi -show power-menu -modi power-menu:rofi-power-menu
 
 super + {Tab,s,b,f,g,d,o,m,e}
-	{kitty,flameshot gui,firefox,pcmanfm,steam,/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=discord com.discordapp.Discord,/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=obs com.obsproject.Studio,virt-manager,mailspring}
+	{kitty,flameshot gui,firefox,pcmanfm,steam,discord,/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=obs com.obsproject.Studio,virt-manager,mailspring}
 
 #####################################################################
 ############################ i3 Keybinds ############################
@@ -36,7 +36,7 @@ super + {1-9,0}
 
 # i3lock
 super + Escape
-	betterlockscreen -l blur off
+	betterlockscreen -l blur
 
 # Close (Kill) Applications
 super + shift + q
@@ -55,7 +55,7 @@ super + shift + {1-9,0}
 	i3-msg move container to workspace {1,2,3,4,5,6,7,8,9,10}
 
 # Scratchpads
-super + shift + {z,x,c,v}
-	{kitty -T Terminal-Scratchpad,bitwarden-desktop,kitty -T Cmus-Scratchpad -e cmus,kitty -T Ncpamixer-Scratchpad -e ncpamixer}
-super + {z,x,c,v}
-	~/.config/i3/scratchpads/scratchpad{1,2,3,4}.sh
+super + shift + {z,x,c}
+	{kitty -T Terminal-Scratchpad,bitwarden-desktop,kitty -T Cmus-Scratchpad -e cmus}
+super + {z,x,c}
+	~/.config/i3/scratchpads/scratchpad{1,2,3}.sh
