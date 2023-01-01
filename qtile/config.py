@@ -17,6 +17,22 @@ def autostart ():
 mod = "mod4"
 
 ###################################
+############# COLORS ##############
+###################################
+
+def init_colors():
+    return [["#212121", "#212121"],   #0  background
+            ["#b3b3b3", "#b3b3b3"],   #1  light_gray
+            ["#999999", "#999999"],   #2  lighter_gray
+            ["#4c4c4c", "#4c4c4c"],   #3  light_dark_gray
+            ["#3c3c3c", "#3c3c3c"],   #4  gray
+            ["#2c2c2c", "#2c2c2c"],   #5  darker_gray
+            ["#141414", "#141414"],   #6  dark_gray
+            ["#0180d3", "#0180d3"],   #7  blue
+            ["#015187", "#015187"],   #8  darker_blue
+            ["#01d3d3", "#01d3d3"]]   #9 cyan
+
+###################################
 ########### KEYBINDINGS ###########
 ###################################
 
@@ -44,10 +60,10 @@ keys = [
     Key([mod, "shift"], "l", lazy.layout.shuffle_right(), desc="Move window right"),
     Key([mod, "shift"], "j", lazy.layout.shuffle_down(), desc="Move window down"),
     Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
-    Key([mod, "shift"], "y", lazy.layout.grow_left(), desc="Resize window left"),
-    Key([mod, "shift"], "o", lazy.layout.grow_right(), desc="Resize window right"),
-    Key([mod, "shift"], "u", lazy.layout.grow_down(), desc="Resize window down"),
-    Key([mod, "shift"], "i", lazy.layout.grow_up(), desc="Resize window up"),
+    Key([mod, "shift"], "u", lazy.layout.grow_left(), desc="Resize window left"),
+    Key([mod, "shift"], "p", lazy.layout.grow_right(), desc="Resize window right"),
+    Key([mod, "shift"], "i", lazy.layout.grow_down(), desc="Resize window down"),
+    Key([mod, "shift"], "o", lazy.layout.grow_up(), desc="Resize window up"),
     Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
 
     # Essential Keybinds
@@ -114,12 +130,12 @@ keys.extend([
 
 # Default window border style
 layout_border = dict(
-    border_focus='#4c4c4c',
-    border_normal='#2c2c2c',
+    border_focus=colors[4],
+    border_normal=colors[6],
 )
 
 layouts = [
-    layout.Columns(**layout_border, margin=3, margin_on_single=0, border_width=2),
+    layout.Columns(**layout_border, margin=6, margin_on_single=0, border_width=2),
     ]
 
 # Drag floating layouts.
@@ -157,7 +173,6 @@ def _(win: base.WindowType) -> None:
             win.cmd_set_position_floating(1960, 125)
             win.cmd_set_size_floating(1280, 720)
 
-
 ###################################
 ######## BAR CONFIGURATION ########
 ###################################
@@ -166,7 +181,7 @@ widget_defaults = dict(
     font="JetBrainsMonoMedium NF",
     fontsize=14,
     padding=2,
-    background='#212121'
+    background=colors[0]
 )
 screens = [
     Screen(
@@ -177,11 +192,11 @@ screens = [
                 margin_y=5,
                 padding_x=8,
                 padding_y=7,
-                this_current_screen_border='#0180d3',
-                this_screen_border='#3c3c3c',
-                inactive='#999999',
-                other_current_screen_border='#0180d3',
-                other_screen_border='#3c3c3c',
+                this_current_screen_border=colors[7],
+                this_screen_border=colors[4],
+                inactive=colors[2],
+                other_current_screen_border=colors[7],
+                other_screen_border=colors[4],
                 disable_drag=True,
                 fontsize=16,
                 font='Font Awesome 5 Free Solid'
@@ -192,8 +207,8 @@ screens = [
                 ),
                 widget.Spacer(length=5
                 ),
-                widget.TaskList(border='#015187',
-                background='#141414',
+                widget.TaskList(border=colors[8],
+                background=colors[6],
                 icon_size=0,
                 highlight_method="block",
                 padding=10,
@@ -213,86 +228,86 @@ screens = [
                 widget.TextBox('',
                 font='Font Awesome 5 Free',
                 fontsize=30,
-                foreground='#2c2c2c',
+                foreground=colors[5],
                 padding=0
                 ),
-                widget.Cmus(play_color='#01d3d3',
-                noplay_color='#b3b3b3',
-                background='#2c2c2c'
+                widget.Cmus(play_color=colors[8],
+                noplay_color=colors[1],
+                background=colors[5]
                 ),
                 widget.TextBox('  ',
                 fontsize=30,
                 padding=-14,
-                background='#2c2c2c'
+                background=colors[5]
                 ),
                 widget.PulseVolume(
-                background='#2c2c2c'
+                background=colors[5]
                 ),
                 widget.TextBox(' ',
                 font='Font Awesome 5 Free',
                 fontsize=17,
-                foreground='#0180d3',
-                background='#2c2c2c'
+                foreground=colors[7],
+                background=colors[5]
                 ),
                 widget.Spacer(length=-2,
-                background='#2c2c2c'
+                background=colors[5]
                 ),
                 widget.Memory(measure_mem='G',
-                background='#2c2c2c',
+                background=colors[5],
                 update_interval=2,
                 format='{MemUsed: .0f}{mm} /{MemTotal: .0f}{mm}'
                 ),
                 widget.Spacer(length=10,
-                background='#2c2c2c'
+                background=colors[5]
                 ),
                 widget.TextBox(' ',
                 font='JetBrainsMono Nerd Font',
                 fontsize=24,
-                foreground='#0180d3',
-                background='#2c2c2c'
+                foreground=colors[7],
+                background=colors[5]
                 ),
                 widget.Spacer(length=-5,
-                background='#2c2c2c'
                 ),
                 widget.CPU(format='{load_percent}%',
-                background='#2c2c2c',
+                background=colors[5],
                 update_interval=2
                 ),
                 widget.TextBox('',
                 font='Font Awesome 5 Free',
                 fontsize=30,
-                foreground='#171717',
-                background='#2c2c2c',
+                foreground=colors[6],
+                background=colors[5],
                 padding=0
                 ),
                 widget.Spacer(length=4,
-                background='#171717'
+                background=colors[6]
                 ),
                 widget.TextBox('',
                 font='Font Awesome 5 Free Solid',
                 fontsize=17,
-                foreground='#0180d3',
-                background='#171717',
+                foreground=colors[7],
+                background=colors[6],
                 ),
                 widget.Clock(format="%a %m/%d/%y",
-                background='#171717'
+                background=colors[6]
                 ),
                 widget.Spacer(length=4,
-                background='#171717'
+                background=colors[6]
                 ),
                 widget.TextBox('',
                 font='Font Awesome 5 Free Solid',
                 fontsize=17,
-                foreground='#0180d3',
-                background='#171717',
+                foreground=colors[7],
+                background=colors[6]
                 ),
                 widget.Clock(format="%I:%M:%S%p",
-                background='#171717'
+                background=colors[6]
                 ),
                 widget.Spacer(length=6,
-                background='#171717'
-		),
-            ], 30),
+                background=colors[6]
+                ),
+            ],
+            30),
         ),
     Screen(
         top=bar.Bar([
@@ -302,11 +317,11 @@ screens = [
                 margin_y=5,
                 padding_x=8,
                 padding_y=7,
-                this_current_screen_border='#0180d3',
-                this_screen_border='#3c3c3c',
-                inactive='#999999',
-                other_current_screen_border='#0180d3',
-                other_screen_border='#3c3c3c',
+                this_current_screen_border=colors[7],
+                this_screen_border=colors[4],
+                inactive=colors[2],
+                other_current_screen_border=colors[7],
+                other_screen_border=colors[4],
                 disable_drag=True,
                 hide_unused=True,
                 fontsize=16,
@@ -317,82 +332,82 @@ screens = [
                 widget.TextBox('',
                 font='Font Awesome 5 Free',
                 fontsize=30,
-                foreground='#333333',
+                foreground=colors[5],
                 padding=0
                 ),
                 widget.Spacer(length=4,
-                background='#333333'
+                background=colors[5]
                 ),
                 widget.TextBox(' ',
                 font='Font Awesome 5 Free',
                 fontsize=17,
-                foreground='#0180d3',
-                background='#333333'
+                foreground=colors[7],
+                background=colors[5]
                 ),
                 widget.Memory(
-                background='#333333',
+                background=colors[5],
                 update_interval=2,
                 format='{MemUsed: .0f}{mm} /{MemTotal: .0f}{mm}'
                 ),
                 widget.Spacer(length=10,
-                background='#333333'
+                background=colors[5]
                 ),
                 widget.TextBox(' ',
                 font='JetBrainsMono Nerd Font',
                 fontsize=24,
-                foreground='#0180d3',
-                background='#333333'
+                foreground=colors[7],
+                background=colors[5]
                 ),
                 widget.Spacer(length=-10,
-                background='#333333'
+                background=colors[5]
                 ),
                 widget.CPU(format='{load_percent}% {freq_current}GHz',
-                background='#333333',
+                background=colors[5],
                 update_interval=2
                 ),
                 widget.Spacer(length=10,
-                background='#333333'
+                background=colors[5]
                 ),
                 widget.TextBox('',
                 font='Font Awesome 5 Free',
                 fontsize=30,
-                foreground='#171717',
-                background='#333333',
+                foreground=colors[6],
+                background=colors[5],
                 padding=0
                 ),
                 widget.Spacer(length=4,
-                background='#171717'
+                background=colors[6]
                 ),
                 widget.TextBox('',
                 font='Font Awesome 5 Free Solid',
                 fontsize=17,
-                foreground='#0180d3',
-                background='#171717',
+                foreground=colors[7],
+                background=colors[6],
                 ),
                 widget.Clock(format="%a %m/%d/%y",
-                background='#171717'
+                background=colors[6]
                 ),
                 widget.Spacer(length=4,
-                background='#171717'
+                background=colors[6]
                 ),
                 widget.TextBox('',
                 font='Font Awesome 5 Free Solid',
                 fontsize=17,
-                foreground='#0180d3',
-                background='#171717',
+                foreground=colors[7],
+                background=colors[6]
                 ),
                 widget.Clock(format="%I:%M:%S%p",
-                background='#171717'
+                background=colors[6]
                 ),
                 widget.Spacer(length=10,
-                background='#171717'
+                background=colors[6]
                 ),
                 widget.Sep(
                 ),
                 widget.Spacer(length=5
                 ),
-                widget.TaskList(border='#015187',
-                background='#141414',
+                widget.TaskList(border=colors[8],
+                background=colors[6],
                 icon_size=0,
                 highlight_method="block",
                 padding=10,
@@ -405,9 +420,11 @@ screens = [
                 ),
                 widget.Sep(
                 ),
-                widget.Spacer(length=10
+                widget.Spacer(length=10,
+                background=colors[6]
                 ),
-            ], 28),
+            ],
+            28),
         )
     ]
 
