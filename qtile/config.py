@@ -20,17 +20,19 @@ mod = "mod4"
 ############# COLORS ##############
 ###################################
 
-def init_colors():
-    return [["#212121", "#212121"],   #0  background
-            ["#b3b3b3", "#b3b3b3"],   #1  light_gray
-            ["#999999", "#999999"],   #2  lighter_gray
-            ["#4c4c4c", "#4c4c4c"],   #3  light_dark_gray
-            ["#3c3c3c", "#3c3c3c"],   #4  gray
-            ["#2c2c2c", "#2c2c2c"],   #5  darker_gray
-            ["#141414", "#141414"],   #6  dark_gray
-            ["#0180d3", "#0180d3"],   #7  blue
-            ["#015187", "#015187"],   #8  darker_blue
-            ["#01d3d3", "#01d3d3"]]   #9 cyan
+colors = [["#141414", "#141414"],   #0  background
+          ["#b3b3b3", "#b3b3b3"],   #1  light_gray
+          ["#999999", "#999999"],   #2  lighter_gray
+          ["#4c4c4c", "#4c4c4c"],   #3  light_dark_gray
+          ["#3c3c3c", "#3c3c3c"],   #4  gray
+          ["#2c2c2c", "#2c2c2c"],   #5  darker_gray
+          ["#141414", "#141414"],   #6  dark_gray
+          ["#0180d3", "#0180d3"],   #7  blue
+          ["#015187", "#015187"],   #8  darker_blue
+          ["#01d3d3", "#01d3d3"],   #9  cyan
+          ["#ffffff", "#ffffff"],   #10 white
+          ["#1a1a1a", "#1a1a1a"],   #10 lighter background
+          ["#212121", "#212121"]]   #11 light background
 
 ###################################
 ########### KEYBINDINGS ###########
@@ -78,16 +80,16 @@ keys = [
 ###################################
 
 groups = [
-    Group("1", label="1"),
+    Group("1", label="1", matches=[Match(wm_class=['firefox'])]),
     Group("2", label="2"),
     Group("3", label="3"),
-    Group("4", label="4 ", matches=[Match(wm_class=['Mailspring'])]),
-    Group("5", label="5 ", matches=[Match(wm_class=['Steam', 'heroic', 'Lutris', 'GeForce NOW', 'lunarclient'])]),
-    Group("6", label="6 ", matches=[Match(wm_class=['VirtualBox Machine', 'VirtualBox Manager', 'Virt-manager'])]),
-    Group("7", label="7"),
-    Group("8", label="8"),
-    Group("9", label="9 ", matches=[Match(wm_class=['discord'])]),
-    Group("0", label="10 ", matches=[Match(wm_class=['obs'])]),
+    Group("4", label="4", matches=[Match(wm_class=['libreoffice-startcenter', 'libreoffice-writer', 'libreoffice-draw', 'libreoffice-calc', 'libreoffice-impress', 'libreoffice-math'])]),
+    Group("5", label="5", matches=[Match(wm_class=['VirtualBox Machine', 'VirtualBox Manager', 'Virt-manager'])]),
+    Group("6", label="6", matches=[Match(wm_class=['discord'])]),
+    Group("7", label="7", matches=[Match(wm_class=['MuseScore3', 'Spotify'])]),
+    Group("8", label="8", matches=[Match(wm_class=['obs'])]),
+    Group("9", label="9", matches=[Match(wm_class=['Steam', 'heroic', 'Lutris', 'GeForce NOW', 'lunarclient'])]),
+    Group("0", label="10", matches=[Match(wm_class=['Mailspring'])])
     ]
 
 for i in groups:
@@ -106,7 +108,7 @@ for i in groups:
         ]
     )
 
-###################################    
+###################################
 ########### SCRATCHPADS ###########
 ###################################
 
@@ -135,7 +137,7 @@ layout_border = dict(
 )
 
 layouts = [
-    layout.Columns(**layout_border, margin=6, margin_on_single=0, border_width=2),
+    layout.Columns(**layout_border, margin=6, margin_on_single=0,  border_width=2),
     ]
 
 # Drag floating layouts.
@@ -179,249 +181,140 @@ def _(win: base.WindowType) -> None:
 
 widget_defaults = dict(
     font="JetBrainsMonoMedium NF",
-    fontsize=14,
+    fontsize=13,
     padding=2,
     background=colors[0]
 )
 screens = [
     Screen(
         top=bar.Bar([
-            widget.GroupBox(rounded=False,
+            widget.Spacer(length=10
+            ),
+            widget.GroupBox(rounded=True,
                 highlight_method="block",
-                margin_x=0,
-                margin_y=5,
+                margin_x=1,
+                margin_y=3,
                 padding_x=8,
-                padding_y=7,
+                padding_y=3,
                 this_current_screen_border=colors[7],
-                this_screen_border=colors[4],
-                inactive=colors[2],
+                this_screen_border=colors[5],
+                inactive=colors[3],
                 other_current_screen_border=colors[7],
-                other_screen_border=colors[4],
+                other_screen_border=colors[5],
                 disable_drag=True,
-                fontsize=16,
-                font='Font Awesome 5 Free Solid'
+                fontsize=14,
+                borderwidth=1,
                 ),
-                widget.Spacer(length=20
+                widget.Spacer(length=10
                 ),
-                widget.Sep(
-                ),
-                widget.Spacer(length=5
-                ),
-                widget.TaskList(border=colors[8],
-                background=colors[6],
+                widget.TaskList(border=colors[5],
+                background=colors[0],
                 icon_size=0,
+                fontsize=14,
                 highlight_method="block",
-                padding=10,
-                padding_y=8,
-                margin=-2,
+                padding_y=7,
+                margin=-1,
                 title_width_method = "uniform",
-                rounded=False
+                rounded=True
                 ),
-                widget.Spacer(length=5
+                widget.Spacer(length=6
                 ),
-                widget.Sep(
+                widget.Cmus(play_color=colors[9],
+                noplay_color=colors[1]
                 ),
-                widget.Spacer(length=20
+                widget.Spacer(length=2
                 ),
-                widget.Systray(
-                ),
-                widget.TextBox('',
+                widget.TextBox('',
                 font='Font Awesome 5 Free',
-                fontsize=30,
-                foreground=colors[5],
-                padding=0
-                ),
-                widget.Cmus(play_color=colors[8],
-                noplay_color=colors[1],
-                background=colors[5]
-                ),
-                widget.TextBox('  ',
-                fontsize=30,
-                padding=-14,
-                background=colors[5]
+                fontsize=17
                 ),
                 widget.PulseVolume(
-                background=colors[5]
+                ),
+                widget.Spacer(length=10
                 ),
                 widget.TextBox(' ',
                 font='Font Awesome 5 Free',
                 fontsize=17,
-                foreground=colors[7],
-                background=colors[5]
+                foreground=colors[7]
                 ),
-                widget.Spacer(length=-2,
-                background=colors[5]
+                widget.Spacer(length=-2
                 ),
                 widget.Memory(measure_mem='G',
-                background=colors[5],
                 update_interval=2,
-                format='{MemUsed: .0f}{mm} /{MemTotal: .0f}{mm}'
+                format=' {MemUsed:.1f}{mm}'
                 ),
-                widget.Spacer(length=10,
-                background=colors[5]
+                widget.Spacer(length=10
                 ),
                 widget.TextBox(' ',
                 font='JetBrainsMono Nerd Font',
                 fontsize=24,
-                foreground=colors[7],
-                background=colors[5]
+                foreground=colors[7]
                 ),
                 widget.Spacer(length=-5,
                 ),
-                widget.CPU(format='{load_percent}%',
-                background=colors[5],
+                widget.CPU(format='{load_percent:.0f}%',
                 update_interval=2
                 ),
-                widget.TextBox('',
-                font='Font Awesome 5 Free',
-                fontsize=30,
-                foreground=colors[6],
-                background=colors[5],
-                padding=0
-                ),
-                widget.Spacer(length=4,
-                background=colors[6]
-                ),
-                widget.TextBox('',
-                font='Font Awesome 5 Free Solid',
-                fontsize=17,
-                foreground=colors[7],
-                background=colors[6],
-                ),
-                widget.Clock(format="%a %m/%d/%y",
-                background=colors[6]
-                ),
-                widget.Spacer(length=4,
-                background=colors[6]
+                widget.Spacer(length=10
                 ),
                 widget.TextBox('',
                 font='Font Awesome 5 Free Solid',
                 fontsize=17,
-                foreground=colors[7],
-                background=colors[6]
+                foreground=colors[7]
                 ),
-                widget.Clock(format="%I:%M:%S%p",
-                background=colors[6]
+                widget.Clock(format="%T %m/%d/%y"
                 ),
-                widget.Spacer(length=6,
-                background=colors[6]
+                widget.Spacer(length=5
+                ),
+                widget.Systray(
+                ),
+                widget.Spacer(length=10
                 ),
             ],
-            30),
+            size=30,
+            ),
         ),
     Screen(
         top=bar.Bar([
-            widget.GroupBox(rounded=False,
+            widget.Spacer(length=10
+            ),
+            widget.GroupBox(rounded=True,
                 highlight_method="block",
-                margin_x=0,
-                margin_y=5,
+                margin_x=1,
+                margin_y=3,
                 padding_x=8,
-                padding_y=7,
+                padding_y=3,
                 this_current_screen_border=colors[7],
-                this_screen_border=colors[4],
-                inactive=colors[2],
+                this_screen_border=colors[5],
+                inactive=colors[3],
                 other_current_screen_border=colors[7],
-                other_screen_border=colors[4],
+                other_screen_border=colors[5],
                 disable_drag=True,
-                hide_unused=True,
-                fontsize=16,
-                font='Font Awesome 5 Free Solid'
+                fontsize=14,
+                borderwidth=1,
                 ),
-                widget.Spacer(length=20
+                widget.Spacer(length=10
                 ),
-                widget.TextBox('',
-                font='Font Awesome 5 Free',
-                fontsize=30,
-                foreground=colors[5],
-                padding=0
+                widget.TaskList(border=colors[5],
+                background=colors[0],
+                icon_size=0,
+                fontsize=14,
+                highlight_method="block",
+                padding_y=6,
+                margin=-1,
+                title_width_method = "uniform",
+                rounded=True
                 ),
-                widget.Spacer(length=4,
-                background=colors[5]
-                ),
-                widget.TextBox(' ',
-                font='Font Awesome 5 Free',
-                fontsize=17,
-                foreground=colors[7],
-                background=colors[5]
-                ),
-                widget.Memory(
-                background=colors[5],
-                update_interval=2,
-                format='{MemUsed: .0f}{mm} /{MemTotal: .0f}{mm}'
-                ),
-                widget.Spacer(length=10,
-                background=colors[5]
-                ),
-                widget.TextBox(' ',
-                font='JetBrainsMono Nerd Font',
-                fontsize=24,
-                foreground=colors[7],
-                background=colors[5]
-                ),
-                widget.Spacer(length=-10,
-                background=colors[5]
-                ),
-                widget.CPU(format='{load_percent}% {freq_current}GHz',
-                background=colors[5],
-                update_interval=2
-                ),
-                widget.Spacer(length=10,
-                background=colors[5]
-                ),
-                widget.TextBox('',
-                font='Font Awesome 5 Free',
-                fontsize=30,
-                foreground=colors[6],
-                background=colors[5],
-                padding=0
-                ),
-                widget.Spacer(length=4,
-                background=colors[6]
-                ),
-                widget.TextBox('',
-                font='Font Awesome 5 Free Solid',
-                fontsize=17,
-                foreground=colors[7],
-                background=colors[6],
-                ),
-                widget.Clock(format="%a %m/%d/%y",
-                background=colors[6]
-                ),
-                widget.Spacer(length=4,
-                background=colors[6]
+                widget.Spacer(length=6
                 ),
                 widget.TextBox('',
                 font='Font Awesome 5 Free Solid',
                 fontsize=17,
-                foreground=colors[7],
-                background=colors[6]
+                foreground=colors[7]
                 ),
-                widget.Clock(format="%I:%M:%S%p",
-                background=colors[6]
-                ),
-                widget.Spacer(length=10,
-                background=colors[6]
-                ),
-                widget.Sep(
+                widget.Clock(format="%T %m/%d/%y"
                 ),
                 widget.Spacer(length=5
-                ),
-                widget.TaskList(border=colors[8],
-                background=colors[6],
-                icon_size=0,
-                highlight_method="block",
-                padding=10,
-                padding_y=8,
-                margin=-2,
-                title_width_method = "uniform",
-                rounded=False
-                ),
-                widget.Spacer(length=5
-                ),
-                widget.Sep(
-                ),
-                widget.Spacer(length=10,
-                background=colors[6]
                 ),
             ],
             28),
@@ -438,3 +331,19 @@ reconfigure_screens = True
 auto_minimize = True
 wl_input_rules = None
 wmname = "Qtile"
+
+
+# The following file contains comments that are the copyright and licensing
+# information from the default qtile config. Copyright (c) 2010 Aldo Cortesi, 
+# 2010, 2014 dequis, 2012 Randall Ma, 2012-2014 Tycho Andersen, 2012 Craig Barne, 
+# 2013 horsik, 2013 Tao Sauvage
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
