@@ -12,12 +12,12 @@
     lightbg:                     rgba ( 238, 232, 213, 100 % );
     selected-active-foreground:  rgba ( 249, 249, 249, 100 % );
     alternate-active-background: rgba ( 75, 81, 96, 89 % );
-    background:                  rgba ( 28, 28, 28, 70 % );
+    background:                  rgba ( 26, 26, 26, 95 % );
     alternate-normal-foreground: @foreground;
-    normal-background:           rgba ( 28, 28, 28, 0 % );
+    normal-background:           rgba ( 26, 26, 26, 0 % );
     lightfg:                     rgba ( 88, 104, 117, 100 % );
     selected-normal-background:  rgba ( 01, 128, 211, 100 % );
-    border-color:                rgba ( 92, 92, 92, 25 % );
+    border-color:                rgba ( 20, 20, 20, 100 % );
     spacing:                     2;
     separatorcolor:              rgba ( 29, 31, 33, 0 % );
     urgent-background:           rgba ( 29, 31, 33, 17 % );
@@ -30,12 +30,12 @@
 }
 window {
     background-color: @background;
-    border:           2;
-    padding:          5;
+    border:           0;
+    padding:          0;
 }
 mainbox {
-    border:  0;
-    padding: 0;
+    border:  4;
+    padding: 12;
 }
 message {
     border:       2px 0px 0px ;
@@ -49,7 +49,7 @@ listview {
     fixed-height: 0;
     border:       2px 0px 0px ;
     border-color: @separatorcolor;
-    spacing:      2px ;
+    spacing:      4px ;
     scrollbar:    true;
     padding:      2px 0px 0px ;
 }
