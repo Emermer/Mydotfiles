@@ -1,15 +1,79 @@
+#+TITLE: Qtile Config
+#+AUTHOR: Emermer
+#+PROPERTY: header-args :tangle config.py
+#+auto_tangle: t
+#+STARTUP: showeverything
+
+* Table of Contents :toc:
+- [[#about-my-qtile-configuration][About My Qtile Configuration]]
+- [[#imports][Imports]]
+- [[#variables][Variables]]
+- [[#keybindings][Keybindings]]
+- [[#groups][Groups]]
+- [[#scratchpads][Scratchpads]]
+- [[#colors][Colors]]
+- [[#layouts][Layouts]]
+- [[#layout-settings][Layout Settings]]
+- [[#bar][Bar]]
+- [[#autostart][Autostart]]
+- [[#other-settings][Other Settings]]
+
+* About My Qtile Configuration
+
+Qtile is a dynamic tiling window manager for X11 and Wayland written and configured in python.
+This file contains the settings that have worked best for me and I hope it can act as a tool to
+help others understand how to hack on configuration files of their own.
+
+Click [[https://docs.qtile.org/][here]] to open Qtile's official documentation.
+
+The following file contains comments that are the copyright and licensing
+information from the default qtile config. Copyright (c) 2010 Aldo Cortesi,
+2010, 2014 dequis, 2012 Randall Ma, 2012-2014 Tycho Andersen, 2012 Craig Barne,
+2013 horsik, 2013 Tao Sauvage
+
+Modified Configuration by Emermer
+- YouTube: https://www.youtube.com/c/emermer
+- Github: https://github.com/emermer
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+* Imports
+In order for some parts of my configuration to work, the following python modules will need to be added:
+
+#+begin_src python
 import os
 import subprocess
 from libqtile import bar, layout, widget, hook, qtile, config
 from libqtile.config import Click, Drag, Group, Key, Match, Screen, ScratchPad, DropDown
 from libqtile.lazy import lazy
 from libqtile.backend import base
+#+end_src
 
+* Variables
+These are not necessary to make my configuration work, they just make the configuration
+less of a hassle to setup. (:
+
+#+begin_src python
 mod = "mod4"
 browser = "firefox"
 fm = "pcmanfm"
 term = "alacritty"
+#+end_src
 
+
+* Keybindings
+These keybindings are used to launch my most used apps and programs, as well as to perform
+actions in the window manager, like killing a window, or reloading the config file.
+
+#+begin_src python
 # Keybindings
 keys = [
     Key([mod], "b", lazy.spawn([browser]), desc="Launch Browser"),
@@ -45,7 +109,15 @@ keys = [
     Key([mod], "space", lazy.window.toggle_floating(), desc="Toggle floating"),
     Key([mod, "shift"], "r", lazy.reload_config(), desc="Reload the config"),
 ]
+#+end_src
 
+* Groups
+- Groups are essentially just containers that can store the windows that are opened by the user.
+- These are called workspaces in other window managers, like i3wm for example.
+- Not only can I set how many groups I want, I can also set the label and what windows get sent to which group!
+- There are many other parameters you can set that you can find in [[https://docs.qtile.org/en/stable/manual/config/groups.html?highlight=groups#group][Qtile's documentation for groups]]
+
+#+begin_src python
 # Groups
 groups = [
     Group("1", label="1", matches=[Match(wm_class=['firefox'])]),
@@ -73,6 +145,14 @@ for i in groups:
         ]
     )
 
+#+end_src
+
+* Scratchpads
+- Scratchpads are basically just windows stored on a hidden group until unhidden by the user using a keybind.
+- Applications that are really useful for something like this is a music player since they are required to be
+  kept open but don't need constant attention.
+
+#+begin_src python
 # Scratchpads
 groups.append(ScratchPad('scratchpad', [
     DropDown('termsp', 'alacritty -t termsp', width=0.7, height=0.7, x=0.15, y=0.15, opacity=1),
@@ -86,6 +166,16 @@ keys.extend([
     Key([mod], "c", lazy.group['scratchpad'].dropdown_toggle('cmussp'), desc="Show cmus scratchpad"),
 ])
 
+#+end_src
+
+* Colors
+- The hex code values below set the colors used throughout this configuration file.
+- You may notice there being two hex values for each color. In my experimentation, it appears that Qtile uses
+  a "fade-like-half-and-half" style to setting colors.
+- To further elaborate, the first value to each color represents the top half of the foreground of whatever you
+  apply the color to. The second value represents the bottom half of the foreground.
+
+#+begin_src python
 # Colors
 colors = [["#141414", "#141414"],   #0  background
           ["#b3b3b3", "#b3b3b3"],   #1  light_gray
@@ -100,6 +190,12 @@ colors = [["#141414", "#141414"],   #0  background
           ["#1a1a1a", "#1a1a1a"],   #10 lighter background
           ["#212121", "#212121"]]   #11 light background
 
+#+end_src
+
+* Layouts
+This sets the placement of windows on a group.
+
+#+begin_src python
 # Layout Border Theme
 layout_border = dict(
     border_focus=colors[4],
@@ -120,6 +216,12 @@ mouse = [
     Drag([mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),
 ]
 
+#+end_src
+
+* Layout Settings
+There are so many layout settings that I had to seperate it from [[Layouts][Layouts]].
+
+#+begin_src python
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: list
 follow_mouse_focus = True
@@ -127,9 +229,9 @@ bring_front_click = False
 cursor_warp = False
 
 floating_layout = layout.Floating(
-        **layout_border,
+        ,**layout_border,
     float_rules=[
-        *layout.Floating.default_float_rules,
+        ,*layout.Floating.default_float_rules,
         Match(wm_class="confirmreset"),  # gitk
         Match(wm_class="makebranch"),  # gitk
         Match(wm_class="maketag"),  # gitk
@@ -149,6 +251,13 @@ def _(win: base.WindowType) -> None:
             win.cmd_set_position_floating(1960, 125)
             win.cmd_set_size_floating(1280, 720)
 
+#+end_src
+
+* Bar
+- A bar, otherwise known as a panel, is, as the name suggests, a bar that displays system information.
+- [[https://docs.qtile.org/en/latest/manual/ref/widgets.html][Qtile's built-in widgets]] can be set to the bar to display system information.
+
+#+begin_src python
 # Bar
 widget_defaults = dict(
     font="JetBrainsMonoMedium NF",
@@ -292,12 +401,23 @@ screens = [
         )
     ]
 
+#+end_src
+
+* Autostart
+This starts my autostart script.
+
+#+begin_src python
 # Autostart
 @hook.subscribe.startup_once
 def autostart ():
     home = os.path.expanduser('~/.config/qtile/autostart.sh')
     subprocess.call([home])
+#+end_src
 
+* Other Settings
+A few other Qtile settings.
+
+#+begin_src python
 # Other Settings
 auto_fullscreen = True
 focus_on_window_activation = "smart"
@@ -305,3 +425,4 @@ reconfigure_screens = True
 auto_minimize = True
 wl_input_rules = None
 wmname = "Qtile"
+#+end_src
