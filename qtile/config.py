@@ -5,7 +5,7 @@ from libqtile.config import Click, Drag, Group, Key, Match, Screen, ScratchPad, 
 from libqtile.lazy import lazy
 from libqtile.backend import base
 
-mod = "mod4"
+mod = "mod4" # mod4 = super key (windows key)
 browser = "firefox"
 fm = "pcmanfm"
 term = "alacritty"
@@ -149,12 +149,13 @@ def _(win: base.WindowType) -> None:
             win.cmd_set_position_floating(1960, 125)
             win.cmd_set_size_floating(1280, 720)
 
-# Bar
 widget_defaults = dict(
     font="JetBrainsMonoMedium NF",
     fontsize=13,
     padding=2,
     background=colors[0]
+
+# Bar
 )
 screens = [
     Screen(

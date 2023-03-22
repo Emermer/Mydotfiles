@@ -14,6 +14,7 @@
 - [[#colors][Colors]]
 - [[#layouts][Layouts]]
 - [[#layout-settings][Layout Settings]]
+- [[#default-widget-settings][Default Widget Settings]]
 - [[#bar][Bar]]
 - [[#autostart][Autostart]]
 - [[#other-settings][Other Settings]]
@@ -62,7 +63,7 @@ These are not necessary to make my configuration work, they just make the config
 less of a hassle to setup. (:
 
 #+begin_src python
-mod = "mod4"
+mod = "mod4" # mod4 = super key (windows key)
 browser = "firefox"
 fm = "pcmanfm"
 term = "alacritty"
@@ -253,17 +254,25 @@ def _(win: base.WindowType) -> None:
 
 #+end_src
 
-* Bar
-- A bar, otherwise known as a panel, is, as the name suggests, a bar that displays system information.
-- [[https://docs.qtile.org/en/latest/manual/ref/widgets.html][Qtile's built-in widgets]] can be set to the bar to display system information.
+* Default Widget Settings
+sets the default settings for the bar widgets.
 
 #+begin_src python
-# Bar
 widget_defaults = dict(
     font="JetBrainsMonoMedium NF",
     fontsize=13,
     padding=2,
     background=colors[0]
+#+end_src
+
+
+* Bar
+- A bar, otherwise known as a panel, is, as the name suggests, a bar that displays system information.
+- [[https://docs.qtile.org/en/latest/manual/ref/widgets.html][Qtile's built-in widgets]] can be set to the bar to display system information.
+
+
+#+begin_src python
+# Bar
 )
 screens = [
     Screen(
