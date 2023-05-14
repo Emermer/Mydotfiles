@@ -51,12 +51,12 @@ groups = [
     Group("1", label="1", matches=[Match(wm_class=['firefox'])]),
     Group("2", label="2"),
     Group("3", label="3"),
-    Group("4", label="4", matches=[Match(wm_class=['libreoffice-writer', 'libreoffice-draw', 'libreoffice-calc', 'libreoffice-impress', 'libreoffice-math'])]),
+    Group("4", label="4"),
     Group("5", label="5", matches=[Match(wm_class=['VirtualBox Machine', 'VirtualBox Manager', 'Virt-manager'])]),
     Group("6", label="6", matches=[Match(wm_class=['discord', 'WebCord'])]),
     Group("7", label="7", matches=[Match(wm_class=['MuseScore3', 'ableton live 11 lite.exe'])]),
     Group("8", label="8", matches=[Match(wm_class=['obs'])]),
-    Group("9", label="9", matches=[Match(wm_class=['Steam', 'heroic', 'Lutris', 'GeForce NOW', 'lunarclient', 'Gimp-2.10'])]),
+    Group("9", label="9", matches=[Match(wm_class=['Steam', 'steam', 'heroic', 'Lutris', 'GeForce NOW', 'lunarclient', 'Gimp-2.10'])])
     ]
 
 for i in groups:
@@ -76,7 +76,7 @@ for i in groups:
 # Scratchpads
 groups.append(ScratchPad('scratchpad', [
     DropDown('termsp', 'alacritty -t termsp', width=0.7, height=0.7, x=0.15, y=0.15, opacity=1),
-    DropDown('bitwardensp', "bitwarden-desktop", width=0.7, height=0.7, x=0.15, y=0.15, opacity=1),
+    DropDown('bitwardensp', 'bitwarden-desktop', width=0.7, height=0.7, x=0.15, y=0.15, opacity=1),
     DropDown('cmussp', 'alacritty -t cmussp -e cmus', width=0.7, height=0.7, x=0.15, y=0.15, opacity=1),
 ]))
 
@@ -303,6 +303,6 @@ def autostart ():
 auto_fullscreen = True
 focus_on_window_activation = "smart"
 reconfigure_screens = True
-auto_minimize = True
+auto_minimize = False
 wl_input_rules = None
 wmname = "Qtile"

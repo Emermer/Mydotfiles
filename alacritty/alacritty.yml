@@ -2,7 +2,7 @@ window:
   padding:
     x: 15
     y: 15
-  opacity: 0.75
+  opacity: 0.60
 font:
   normal:
     family: MesloLGS NF
