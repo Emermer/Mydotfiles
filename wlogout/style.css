@@ -1,0 +1,44 @@
+* {
+	background-image: none;
+}
+window {
+	background-color: rgba(20, 20, 20, 0.2);
+}
+button {
+    color: #FFFFFF;
+	background-color: #141414;
+	border-style: solid;
+	border-width: 0px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 25%;
+}
+
+button:focus, button:active, button:hover {
+	background-color: #0180d3;
+	outline-style: none;
+}
+
+#lock {
+    background-image: image(url("/home/emermer/.config/wlogout/icons/lock.png"), url("/home/emermer/.config/wlogout/icons/lock.png"));
+}
+
+#logout {
+    background-image: image(url("/home/emermer/.config/wlogout/icons/logout.png"), url("/home/emermer/.config/wlogout/icons/logout.png"));
+}
+
+#suspend {
+    background-image: image(url("/home/emermer/.config/wlogout/icons/suspend.png"), url("/home/emermer/.config/wlogout/icons/suspend.png"));
+}
+
+#hibernate {
+    background-image: image(url("/home/emermer/.config/wlogout/icons/hibernate.png"), url("/home/emermer/.config/wlogout/icons/hibernate.png"));
+}
+
+#shutdown {
+    background-image: image(url("/home/emermer/.config/icons/shutdown.png"), url("/home/emermer/.config/wlogout/icons/shutdown.png"));
+}
+
+#reboot {
+    background-image: image(url("/home/emermer/.config/wlogout/icons/reboot.png"), url("/home/emermer/.config/wlogout/icons/reboot.png"));
+}
