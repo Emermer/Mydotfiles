@@ -73,3 +73,7 @@
 
 tabbrowser tabpanels { background-color: rgb(24,26,27) !important; }
 browser { background-color: #181a1b !important; }
+
+#tabbrowser-tabpanels {
+  --tabpanel-background-color: #181a1b !important;
+}
