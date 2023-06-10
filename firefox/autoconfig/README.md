@@ -11,4 +11,4 @@ You will need an html file to have a custom homepage. If you don't have one you 
 Video I used to make and customize mine: https://www.youtube.com/watch?v=Hb0p-TxgZzs
 
 ANOTHER NOTE:
-In case you want to have your html file display on your homepage, you can change the "Homepage and new windows" setting in Firefox to "Custom URLs...", then just paste the same file directory you used for the autoconfig.cfg file.
+In case you want to have your html file display on your homepage, you can change the "Homepage and new windows" setting in Firefox to "Custom URLs...", then just paste the same file directory you used for the autoconfig.cfg file. (e.g. file:///path/to/file.html)
