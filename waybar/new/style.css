@@ -3,17 +3,17 @@
     border-radius: 0;
     font-family: JetBrainsMonoMedium Nerd Font;
     font-weight: bold;
-    font-size: 13px;
+    font-size: 14px;
     min-height: 20px;
 }
 
 window#waybar {
-    background: rgba(33, 33, 33, 0.75);
+    background: rgba(0, 0, 0, 0);
     color: #ffffff
 }
 
 tooltip {
-    background: rgba(33, 33, 33, 0.8);
+    background: rgba(0, 0, 0, 0);
     border-style: solid;
     border-color: #11111b;
 }
@@ -28,16 +28,16 @@ tooltip {
 
 #workspaces button.focused {
     color: #ffffff;
-    background: rgba(33, 33, 33, 0.75);
+    background: rgba(0, 0, 0, 0);
 }
 
 #workspaces button.urgent {
     color: #ff0000;
-    background: rgba(33, 33, 33, 0.75);
+    background: rgba(0, 0, 0, 0);
 }
 
 #workspaces button:hover {
-    background: rgba(33, 33, 33, 0.75);
+    background: rgba(0, 0, 0, 0);
     color: #ebebeb;
 }
 
@@ -56,22 +56,21 @@ tooltip {
 #tray,
 
 #cpu {
-    background: #2c2c2c;
+    background: rgba(0, 0, 0, 0);
     padding: 0px 10px;
     border-radius: 10px;
-    border-radius: 10px 0px 0px 10px;
     margin: 3px 0px
 }
 
 #memory {
-    background: #2c2c2c;
+    background: #212121;
     padding: 0px 10px;
-    border-radius: 0px 10px 10px 0px;
+    border-radius: 10px;
     margin: 3px 0px
 }
 
 #backlight {
-    background: rgba(33, 33, 33, 0.75);
+    background: #212121;
     padding: 0px 10px;
     margin: 3px 0px;
     margin-top: 10px;
@@ -80,15 +79,12 @@ tooltip {
 
 #tray {
     background: #2c2c2c;
-    border-radius: 10px 0px 0px 10px;
+    border-radius: 10px;
     margin: 3px 0px
 }
 
 #workspaces {
-    background: #2c2c2c;
-    border-radius: 10px 0px 0px 10px;
-    margin: 3px 0px 3px 12px;
-    padding: 0px 0px 0px 18px;
+    background: #212121;
 }
 
 #custom-language {
@@ -100,16 +96,11 @@ tooltip {
 }
 
 #window {
-    background: #2c2c2c;
-    border-radius: 0px 10px 10px 0px;
-    margin: 3px 6px 3px 0px;
+    background: #212121;
 }
 
 #clock {
-    background: #2c2c2c;
     color: #ffffff;
-    border-radius: 10px;
-    margin: 3px 12px 3px 6px;
 }
 
 #network {
@@ -119,16 +110,10 @@ tooltip {
 #pulseaudio {
     color: #ffffff;
     background: #2c2c2c;
-    border-radius: 0px 10px 10px 0px;
-    margin: 3px 6px 3px 0px;
+    border-radius: 10px;
+    margin: 3px 0px
 }
 
 #pulseaudio.microphone {
     color: #ffffff;
-}
-
-#custom-swaync {
-    background: #2c2c2c;
-    border-radius: 0px;
-    margin: 3px 0px;
 }

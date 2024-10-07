@@ -1,18 +1,12 @@
 {
     "label" : "lock",
-    "action" : "gtklock",
+    "action" : "gtklock --monitor-priority HDMI-A-1",
     "text" : "Lock",
     "keybind" : "l"
 }
 {
-    "label" : "hibernate",
-    "action" : "systemctl hibernate",
-    "text" : "Hibernate",
-    "keybind" : "h"
-}
-{
     "label" : "logout",
-    "action" : "loginctl terminate-user $USER",
+    "action" : "hyprctl dispatch exit 0",
     "text" : "Logout",
     "keybind" : "e"
 }
@@ -25,7 +19,7 @@
 {
     "label" : "suspend",
     "action" : "systemctl suspend",
-    "text" : "Suspend",
+    "text" : "Sleep",
     "keybind" : "u"
 }
 {

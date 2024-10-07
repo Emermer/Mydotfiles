@@ -8,24 +8,15 @@
     "height": 0,
     "modules-left": [
         "hyprland/workspaces",
-        "hyprland/window"
-    ],
-    "modules-center": [
-        "tray",
-	"custom/swaync",
         "pulseaudio"
     ],
+    "modules-center": ["hyprland/window"],
     "modules-right": [
+        "tray",
         "cpu",
         "memory",
         "clock"
     ],
-
-"custom/swaync": {
-	"format": " ",
-    "on-click": "sleep 0.1; dunstctl history-pop",
-	"tooltip": false
-    },
 
     "hyprland/window": {
         "format": "{}"
@@ -40,7 +31,7 @@
         "active": "",
         "urgent": ""
         },
-        "persistent-workspaces": {
+        "persistent_workspaces": {
             "1": [],
             "2": [],
             "3": [],
@@ -58,15 +49,15 @@
         "spacing": 10
     },
     "clock": {
-        "format": "<span color=\"#0180d3\" font=\"Font Awesome 6 Free Solid 12\"></span>  {:%I:%M  %m/%d}",
-        "tooltip-format": "<big>      {:%r}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "<span color=\"#0180d3\" font=\"Font Awesome 6 Free Solid 12\"></span> {: %I:%M  %m/%d}",
+        "tooltip-format": "<big>{:      %r}</big>\n<tt><small>{calendar}</small></tt>",
         "interval": 1
     },
     "memory": {
         "format": "<span color=\"#0180d3\" font=\"Font Awesome 6 Free 12\"></span>  {}%"
     },
     "cpu": {
-        "format": "<span color=\"#0180d3\" font=\"Font Awesome 6 Free 12\"></span>  {usage}%",
+        "format": "<span color=\"#0180d3\" font=\"Font Awesome 6 Free 13\"></span>  {usage}%",
         "tooltip": false,
         "interval": 3
     },
