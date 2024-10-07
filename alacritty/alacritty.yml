@@ -2,40 +2,40 @@ window:
   padding:
     x: 15
     y: 15
-  opacity: 0.60
+  opacity: 0.70
 font:
   normal:
-    family: MesloLGS NF
+    family: JetBrainsMono Nerd Font
     style: Regular
   bold:
-    family: MesloLGS NF
+    family: JetBrainsMono Nerd Font
     style: Bold
   italic:
-    family: MesloLGS NF
+    family: JetBrainsMono Nerd Font
     style: Italic
   bold_italic:
-    family: MesloLGS NF
+    family: JetBrainsMono Nerd Font
     style: Bold Italic
   size: 9.0
 colors:
   primary:
     background: '#000000'
-    foreground: '#FFFFFF'
+    foreground: '#ffffff'
   normal:
     black:   '#000000'
-    red:     '#CD0000'
-    green:   '#00CD00'
-    yellow:  '#CDCD00'
-    blue:    '#0000EE'
-    magenta: '#CD00CD'
-    cyan:    '#00CDCD'
-    white:   '#E5E5E5'
+    red:     '#cd0000'
+    green:   '#00cd00'
+    yellow:  '#cdcd00'
+    blue:    '#0000ee'
+    magenta: '#cd00cd'
+    cyan:    '#00cdcd'
+    white:   '#e5e5e5'
   bright:
-    black:   '#7F7F7F'
-    red:     '#FF0000'
-    green:   '#00FF00'
-    yellow:  '#FFFF00'
-    blue:    '#5C5CFF'
-    magenta: '#FF00FF'
-    cyan:    '#00FFFF'
-    white:   '#FFFFFF'
+    black:   '#7f7f7f'
+    red:     '#ff0000'
+    green:   '#00ff00'
+    yellow:  '#ffff00'
+    blue:    '#5c5cff'
+    magenta: '#ff00ff'
+    cyan:    '#00ffff'
+    white:   '#ffffff'
