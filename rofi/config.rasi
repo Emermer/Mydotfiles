@@ -1,10 +1,10 @@
 configuration {
 	kb-cancel: "Escape,super+r";
-	display-drun: "Apps";
+	display-drun: " ";
 	drun-display-format: "{icon} {name}";
 	font: "JetBrainsMono Nerd Font 12";
 	show-icons: true;
-	icon-theme: "ePapirus-Dark";
+	icon-theme: "Papirus-Dark";
 	modi: "drun";
 }
 
