@@ -1,0 +1,6 @@
+Trash delete after 30 days
+Waybar minimalization
+Some type of update manager
+
+power menu
+lock screen

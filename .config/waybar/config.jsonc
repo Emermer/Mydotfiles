@@ -1,0 +1,89 @@
+{
+    "layer": "top",
+    "position": "top",
+    "mod": "dock",
+    "exclusive": true,
+    "passthrough": false,
+    "gtk-layer-shell": true,
+    "height": 0,
+    "modules-left": [
+        "hyprland/workspaces"
+    ],
+    "modules-center": [
+        "hyprland/window"
+    ],
+    "modules-right": [
+        "tray",
+	"custom/noti",
+        "pulseaudio",
+        "cpu",
+        "memory",
+        "clock"
+    ],
+
+"custom/noti": {
+	"format": " ",
+    "on-click": "sleep 0.1; dunstctl history-pop",
+	"tooltip": false
+    },
+
+    "hyprland/window": {
+        "format": "{}"
+    },
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "on-click": "activate",
+        "persistent-workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": [],
+            "6": [],
+            "7": [],
+            "8": [],
+            "9": []
+        },
+        "sort-by-number": true
+    },
+    "tray": {
+        "icon-size": 13,
+        "spacing": 10
+    },
+    "clock": {
+        "format": "<span color=\"#0180d3\" font=\"Font Awesome 6 Free Solid 12\"></span>  {:%I:%M  %m/%d}",
+        "tooltip-format": "<big>      {:%r}</big>\n<tt><small>{calendar}</small></tt>",
+        "interval": 1
+    },
+    "memory": {
+        "format": "<span color=\"#0180d3\" font=\"Font Awesome 6 Free 12\"></span>  {}%"
+    },
+    "cpu": {
+        "format": "<span color=\"#0180d3\" font=\"Font Awesome 6 Free 12\"></span>  {usage}%",
+        "tooltip": false,
+        "interval": 3
+    },
+    "pulseaudio": {
+        "format": "<span font=\"Font Awesome 6 Free 10\">{icon}</span>  {volume}%",
+        "tooltip": false,
+        "format-muted": "<span font=\"Font Awesome 6 Free 10\"></span>  Muted",
+        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-click-right": "GDK_DISABLE=vulkan pavucontrol",
+        "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +2%",
+        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -2%",
+        "scroll-step": 5,
+        "format-icons": {
+            "default": ["", "", ""]
+        }
+    },
+    "pulseaudio#microphone": {
+        "format": "{format_source}",
+        "format-source": "<span color=\"#0180d3\"></span>  {volume}%",
+        "format-source-muted": "<span color=\"#0180d3\"></span>  Muted",
+        "on-click": "pamixer --default-source -t",
+        "on-scroll-up": "pamixer --default-source -i 5",
+        "on-scroll-down": "pamixer --default-source -d 5",
+        "scroll-step": 5
+    }
+}

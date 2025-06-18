@@ -12,7 +12,7 @@
     ],
     "modules-center": [
         "tray",
-	"custom/swaync",
+	"custom/noti",
         "pulseaudio"
     ],
     "modules-right": [
@@ -21,7 +21,7 @@
         "clock"
     ],
 
-"custom/swaync": {
+"custom/noti": {
 	"format": " ",
     "on-click": "sleep 0.1; dunstctl history-pop",
 	"tooltip": false
@@ -75,7 +75,7 @@
         "tooltip": false,
         "format-muted": "<span font=\"Font Awesome 6 Free 10\"></span>  Muted",
         "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-        "on-click-right": "pavucontrol",
+        "on-click-right": "GDK_DISABLE=vulkan pavucontrol",
         "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +2%",
         "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -2%",
         "scroll-step": 5,

@@ -1,0 +1,44 @@
+* {
+	background-image: none;
+}
+window {
+	background-color: rgba(0, 0, 0, 0.2);
+}
+button {
+    color: #FFFFFF;
+	background-color: rgba(10, 10, 10, 0.4);
+	border-width: 0px;
+	border-color: #000000;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 35%;
+    margin: 4px;
+}
+
+button:hover, button:focus {
+	background-color: rgba(30, 30, 30, 0.9);
+}
+
+button:active {
+	background-color: #141414;
+}
+
+#lock {
+    background-image: image(url("/home/emermer/.config/wlogout/icons/lock.png"), url("/home/emermer/.config/wlogout/icons/lock.png"));
+}
+
+#logout {
+    background-image: image(url("/home/emermer/.config/wlogout/icons/logout.png"), url("/home/emermer/.config/wlogout/icons/logout.png"));
+}
+
+#suspend {
+    background-image: image(url("/home/emermer/.config/wlogout/icons/suspend.png"), url("/home/emermer/.config/wlogout/icons/suspend.png"));
+}
+
+#shutdown {
+    background-image: image(url("/home/emermer/.config/icons/shutdown.png"), url("/home/emermer/.config/wlogout/icons/shutdown.png"));
+}
+
+#reboot {
+    background-image: image(url("/home/emermer/.config/wlogout/icons/reboot.png"), url("/home/emermer/.config/wlogout/icons/reboot.png"));
+}
