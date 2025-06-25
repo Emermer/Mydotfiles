@@ -1,8 +1,11 @@
 #!/bin/bash
-if pgrep -x "bitwarden" > /dev/null
+WS_NAME="$1"
+APP="${2:-$1}"
+
+if pgrep -x "$WS_NAME" > /dev/null
 then
-    hyprctl dispatch togglespecialworkspace
+    hyprctl dispatch togglespecialworkspace name:$WS_NAME
 else
-    bitwarden-desktop &
-    hyprctl dispatch togglespecialworkspace
+    $APP &
+    hyprctl dispatch togglespecialworkspace name:$WS_NAME
 fi
