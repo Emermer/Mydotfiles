@@ -1,0 +1,29 @@
+[pyprland]
+plugins = ["scratchpads"]
+
+[scratchpads.config]
+animation = "fromBottom"
+size = "80% 80%"
+margin = 108
+unfocus = "hide"
+hysteresis = 0.01
+pinned = false
+multi = false
+match_by = "class"
+smart_focus = false
+
+[scratchpads.thunar]
+use = "config"
+command = "thunar"
+class = "thunar"
+
+[scratchpads.bitwarden]
+use = "config"
+command = "bitwarden-desktop"
+class = "Bitwarden"
+
+[scratchpads.music]
+use = "config"
+command = "spotube"
+class = "spotube"
+lazy = true
