@@ -3,19 +3,19 @@
 * {
     border: none;
     border-radius: 0;
-    font-family: JetBrainsMono Nerd Font Mono Regular;
+    font-family: JetBrainsMonoMedium Nerd Font;
     font-weight: bold;
     font-size: 13px;
-    min-height: 10px;
+    min-height: 20px;
 }
 
 window#waybar {
-    background: @clear;
+    background: @dark;
     color: @white;
 }
 
 tooltip {
-    background: @dark;
+    background: @grey0;
     border-style: solid;
     border-color: @dark;
 }
@@ -58,50 +58,51 @@ tooltip {
 #tray,
 
 #cpu {
-    background: @dark;
+    background: @grey0;
     padding: 0px 10px;
-    border-radius: 18px 0px 0px 18px;
-    margin: 8px 0px 0px 8px
+    border-radius: 10px;
+    border-radius: 10px 0px 0px 10px;
+    margin: 3px 0px
 }
 
 #memory {
-    background: @dark;
-    padding: 0px 6px;
-    border-radius: 0px;
-    margin: 8px 0px 0px
+    background: @grey0;
+    padding: 0px 10px;
+    border-radius: 0px 10px 10px 0px;
+    margin: 3px 0px
 }
 
 #tray {
-    background: @dark;
-    border-radius: 18px 0px 0px 18px;
-    margin: 8px 0px 0px 6px;
+    background: @grey0;
+    border-radius: 10px 0px 0px 10px;
+    margin: 3px 0px
 }
 
 #workspaces {
-    background: @dark;
-    border-radius: 18px 18px 18px 18px;
-    margin: 8px 12px 0px 12px;
-    padding: 0px 8px 0px 8px;
+    background: @grey0;
+    border-radius: 10px 0px 0px 10px;
+    margin: 3px 0px 3px 12px;
+    padding: 0px 0px 0px 18px;
 }
 
 #window {
-    background: @dark;
-    border-radius: 0px 18px 18px 0px;
-    margin: 8px 0px 0px 0px;
+    background: @grey0;
+    border-radius: 0px 10px 10px 0px;
+    margin: 3px 6px 3px 0px;
 }
 
 #clock {
-    background: @dark;
+    background: @grey0;
     color: @white;
-    border-radius: 18px;
-    margin: 8px 8px 0px 6px;
+    border-radius: 10px;
+    margin: 3px 12px 3px 6px;
 }
 
 #pulseaudio {
     color: @white;
-    background: @dark;
-    border-radius: 18px 18px 18px 18px;
-    margin: 8px 0px 0px 6px;
+    background: @grey0;
+    border-radius: 0px 10px 10px 0px;
+    margin: 3px 6px 3px 0px;
 }
 
 #pulseaudio.microphone {
@@ -109,8 +110,7 @@ tooltip {
 }
 
 #custom-noti {
-    background: @dark;
-    border-radius: 0px 18px 18px 0px;
-    margin: 8px 0px 0px;
-    padding: 0px 8px 0px 0px;
+    background: @grey0;
+    border-radius: 0px;
+    margin: 3px 0px;
 }

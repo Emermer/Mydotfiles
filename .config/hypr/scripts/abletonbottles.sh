@@ -1,0 +1,2 @@
+#!/bin/bash
+flatpak run --command=bottles-cli com.usebottles.bottles run -b Ableton\ Live -e $HOME/.var/app/com.usebottles.bottles/data/bottles/bottles/Ableton-Live/drive_c/ProgramData/Ableton/Live\ 11\ Lite/Program/Ableton\ Live\ 11\ Lite.exe || flatpak run com.usebottles.bottles

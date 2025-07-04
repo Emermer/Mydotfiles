@@ -21,6 +21,7 @@ class = "thunar"
 use = "config"
 command = "bitwarden-desktop"
 class = "Bitwarden"
+lazy = true
 
 [scratchpads.music]
 use = "config"

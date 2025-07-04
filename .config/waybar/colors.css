@@ -1,0 +1,8 @@
+@define-color dark #1d1d20;
+@define-color grey0 #222226;
+@define-color grey1 #37373b;
+@define-color light #d2d2d3;
+@define-color white #ffffff;
+@define-color blue #1c71d8;
+@define-color red #e01b24;
+@define-color clear rgba(0, 0, 0, 0);

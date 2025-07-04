@@ -7,36 +7,34 @@
     "gtk-layer-shell": true,
     "height": 0,
     "modules-left": [
-        "cpu",
-        "memory",
+        "hyprland/workspaces",
         "hyprland/window"
     ],
     "modules-center": [
-        "hyprland/workspaces"
+        "tray",
+	"custom/noti",
+        "pulseaudio"
     ],
     "modules-right": [
-        "pulseaudio",
-        "tray",
-        "custom/noti",
+        "cpu",
+        "memory",
         "clock"
     ],
 
-    "custom/noti": {
-        "format": "<span color=\"#dfdfdf\"></span> ",
-        "on-click": "sleep 0.1; dunstctl history-pop",
-	    "tooltip": false
+"custom/noti": {
+	"format": " ",
+    "on-click": "sleep 0.1; dunstctl history-pop",
+	"tooltip": false
     },
 
     "hyprland/window": {
-        "format": "{}",
-        "max-length": 50,
-        "separate-outputs": true,
+        "format": "{}"
     },
     "hyprland/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
         "on-click": "activate",
-        "format": "<span color=\"#dfdfdf\" font=\"Font Awesome 6 Free 12\">{icon}</span>",
+        "format": "<span color=\"#dfdfdf\" font=\"Font Awesome 6 Free 13\">{icon}</span>",
         "format-icons": {
         "default": "",
         "active": "",
@@ -56,8 +54,8 @@
         "sort-by-number": true
     },
     "tray": {
-        "icon-size": 15,
-        "spacing": 8
+        "icon-size": 13,
+        "spacing": 10
     },
     "clock": {
         "format": "<span color=\"#0180d3\" font=\"Font Awesome 6 Free Solid 12\"></span>  {:%I:%M  %m/%d}",
@@ -84,5 +82,14 @@
         "format-icons": {
             "default": ["", "", ""]
         }
+    },
+    "pulseaudio#microphone": {
+        "format": "{format_source}",
+        "format-source": "<span color=\"#0180d3\"></span>  {volume}%",
+        "format-source-muted": "<span color=\"#0180d3\"></span>  Muted",
+        "on-click": "pamixer --default-source -t",
+        "on-scroll-up": "pamixer --default-source -i 5",
+        "on-scroll-down": "pamixer --default-source -d 5",
+        "scroll-step": 5
     }
 }

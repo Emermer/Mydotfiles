@@ -1,0 +1,134 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: JetBrainsMonoMedium Nerd Font;
+    font-weight: bold;
+    font-size: 13px;
+    min-height: 20px;
+}
+
+window#waybar {
+    background: rgba(33, 33, 33, 0.75);
+    color: #ffffff
+}
+
+tooltip {
+    background: rgba(33, 33, 33, 0.8);
+    border-style: solid;
+    border-color: #11111b;
+}
+
+#workspaces button {
+    color: #ffffff;
+}
+
+#workspaces button.active {
+    color: #ffffff;
+}
+
+#workspaces button.focused {
+    color: #ffffff;
+    background: rgba(33, 33, 33, 0.75);
+}
+
+#workspaces button.urgent {
+    color: #ff0000;
+    background: rgba(33, 33, 33, 0.75);
+}
+
+#workspaces button:hover {
+    background: rgba(33, 33, 33, 0.75);
+    color: #ebebeb;
+}
+
+#cpu,
+#memory,
+#custom-language,
+#custom-updates,
+#custom-caffeine,
+#custom-weather,
+#window,
+#clock,
+#battery,
+#pulseaudio,
+#network,
+#workspaces,
+#tray,
+
+#cpu {
+    background: #2c2c2c;
+    padding: 0px 10px;
+    border-radius: 10px;
+    border-radius: 10px 0px 0px 10px;
+    margin: 3px 0px
+}
+
+#memory {
+    background: #2c2c2c;
+    padding: 0px 10px;
+    border-radius: 0px 10px 10px 0px;
+    margin: 3px 0px
+}
+
+#backlight {
+    background: rgba(33, 33, 33, 0.75);
+    padding: 0px 10px;
+    margin: 3px 0px;
+    margin-top: 10px;
+    border: 1px solid #181825;
+}
+
+#tray {
+    background: #2c2c2c;
+    border-radius: 10px 0px 0px 10px;
+    margin: 3px 0px
+}
+
+#workspaces {
+    background: #2c2c2c;
+    border-radius: 10px 0px 0px 10px;
+    margin: 3px 0px 3px 12px;
+    padding: 0px 0px 0px 18px;
+}
+
+#custom-language {
+    color: #ffffff;
+}
+
+#custom-updates {
+    color: #ffffff;
+}
+
+#window {
+    background: #2c2c2c;
+    border-radius: 0px 10px 10px 0px;
+    margin: 3px 6px 3px 0px;
+}
+
+#clock {
+    background: #2c2c2c;
+    color: #ffffff;
+    border-radius: 10px;
+    margin: 3px 12px 3px 6px;
+}
+
+#network {
+    color: #ffffff;
+}
+
+#pulseaudio {
+    color: #ffffff;
+    background: #2c2c2c;
+    border-radius: 0px 10px 10px 0px;
+    margin: 3px 6px 3px 0px;
+}
+
+#pulseaudio.microphone {
+    color: #ffffff;
+}
+
+#custom-noti {
+    background: #2c2c2c;
+    border-radius: 0px;
+    margin: 3px 0px;
+}
