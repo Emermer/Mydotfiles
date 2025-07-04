@@ -1,8 +1,0 @@
-Trash delete after 30 days
-Done - Waybar minimalization
-Some type of update manager (maybe arch-update by antiz96)
-Kinda Done - Post-install script
-
-power menu
-lock screen
-Pywal
